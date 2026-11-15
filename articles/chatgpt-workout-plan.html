@@ -8,6 +8,11 @@
 <meta property="og:title" content="如何用 ChatGPT，做自己的肌力訓練課表？">
 <meta property="og:description" content="兩段可以直接複製的指令，讓 ChatGPT 依你的狀況排出訓練課表；也說清楚 AI 開課表目前還做不好的兩件事。">
 <meta property="og:type" content="article">
+<meta property="og:site_name" content="讓你的 AI 變好用">
+<meta property="og:url" content="https://juiyiteng.github.io/articles/chatgpt-workout-plan.html">
+<meta property="og:image" content="https://juiyiteng.github.io/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://juiyiteng.github.io/articles/chatgpt-workout-plan.html">
 <style>
 :root{
   --bg:#FAF7F2; --card:#FFFFFF; --ink:#1F2328; --muted:#5A5F66; --line:#E6E0D6;
@@ -249,6 +254,28 @@ function api(payload){
   return fetch(API, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload)})
     .then(function(r){ return r.json(); }).then(function(j){ if(!j.ok) throw new Error('bad'); return j; });
 }
+// 瀏覽次數：只在正式網址計算；網址加 ?owner=1 開過一次的瀏覽器（丸子和 AI 自己）不計。
+(function(){
+  if (location.hostname !== 'juiyiteng.github.io') return;
+  var q = new URLSearchParams(location.search);
+  if (q.get('owner') === '1') { store('aiSiteOwner', '1'); return; }
+  if (store('aiSiteOwner')) return;
+  var src = (q.get('utm_source') || '').toLowerCase().replace(/[^a-z0-9.-]/g, '').slice(0, 30);
+  if (!src) {
+    var h = ''; try { h = new URL(document.referrer).hostname; } catch(e) {}
+    src = !h || h === location.hostname ? 'direct'
+      : /facebook|fb\.|messenger/.test(h) ? 'facebook'
+      : /instagram/.test(h) ? 'instagram'
+      : /threads/.test(h) ? 'threads'
+      : /google/.test(h) ? 'google'
+      : /line\.me|line\.naver/.test(h) ? 'line'
+      : /bing|yahoo|duckduckgo/.test(h) ? 'search'
+      : h.replace(/^www\./, '').slice(0, 30);
+  }
+  var post = document.querySelector('article.post');
+  var page = post && post.id ? post.id : 'home';
+  api({type:'view', resource: page, source: src}).catch(function(){});
+})();
 function loadStats(){
   if(!API) return;
   fetch(API).then(function(r){ return r.json(); }).then(function(s){
