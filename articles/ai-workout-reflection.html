@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>不是完美課表，是你能開始做的課表｜讓你的 AI 變好用</title>
+<meta name="description" content="用 AI 幫 26 位同學設計訓練課表後，我重新想了一次設計課表的意義：AI 加快的是流程，課表的價值在於讓人看了會想開始。">
+<meta property="og:title" content="不是完美課表，是你能開始做的課表">
+<meta property="og:description" content="用 AI 幫 26 位同學設計訓練課表後，我重新想了一次設計課表的意義：AI 加快的是流程，課表的價值在於讓人看了會想開始。">
+<meta property="og:type" content="article">
+<style>
+:root{
+  --bg:#FAF7F2; --card:#FFFFFF; --ink:#1F2328; --muted:#5A5F66; --line:#E6E0D6;
+  --accent:#3B4BC8; --accent-ink:#FFFFFF; --soft:#EEF0FB; --ok:#1E7A4C;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16181D; --card:#1F222A; --ink:#ECEDEF; --muted:#A7ABB3; --line:#2E323C;
+    --accent:#8C9BFF; --accent-ink:#11131A; --soft:#262B40; --ok:#5FD39A;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16181D; --card:#1F222A; --ink:#ECEDEF; --muted:#A7ABB3; --line:#2E323C;
+  --accent:#8C9BFF; --accent-ink:#11131A; --soft:#262B40; --ok:#5FD39A;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  font-size:19px;line-height:1.75}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header{padding:56px 0 28px}
+.brand{font-size:15px;font-weight:700;letter-spacing:.08em;color:var(--accent);margin:0 0 12px}
+h1{font-size:clamp(30px,6vw,42px);line-height:1.3;margin:0 0 16px;font-weight:800}
+.tagline{font-size:22px;font-weight:700;margin:-4px 0 16px}
+.lead{font-size:20px;color:var(--muted);margin:0}
+h2{font-size:26px;line-height:1.4;margin:0 0 8px}
+h3{font-size:21px;margin:28px 0 8px}
+section{padding:24px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 24px;margin:16px 0}
+.tag{display:inline-block;font-size:15px;font-weight:700;background:var(--soft);color:var(--accent);
+  border-radius:999px;padding:2px 12px;margin:0 6px 10px 0}
+.card p{margin:8px 0}
+ul{padding-left:1.2em;margin:8px 0}
+li{margin:4px 0}
+.ways{display:grid;gap:16px;margin-top:20px}
+@media (min-width:700px){.ways{grid-template-columns:1fr 1fr}}
+.way{border:2px solid var(--line);border-radius:14px;padding:20px}
+.way.easy{border-color:var(--accent)}
+.way h4{font-size:20px;margin:0 0 4px}
+.way .who{font-size:16px;color:var(--muted);margin:0 0 12px}
+ol{padding-left:1.3em;margin:8px 0}
+ol li{margin:6px 0}
+.btn{display:block;width:100%;text-align:center;font-size:19px;font-weight:700;border-radius:12px;
+  padding:14px 16px;margin-top:14px;border:2px solid var(--accent);cursor:pointer;text-decoration:none;font-family:inherit}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.copied{color:var(--ok);font-weight:700;font-size:17px;text-align:center;min-height:1.6em;margin:8px 0 0}
+.note{font-size:17px;color:var(--muted)}
+details{border-top:1px solid var(--line);padding:14px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;font-size:19px}
+details p{margin:10px 0 0}
+kbd{font-family:inherit;font-size:16px;background:var(--soft);border-radius:6px;padding:1px 7px}
+footer{padding:40px 0 56px;font-size:16px;color:var(--muted)}
+footer p{margin:4px 0}
+.consult{border:2px solid var(--accent);background:var(--soft)}
+.consult .btn{max-width:360px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:12px 0}
+.svc h4{font-size:20px;margin:0 0 4px}
+.svc p{margin:0}
+.svc.fit{border:2px dashed var(--accent)}
+.react{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.pill{font-family:inherit;font-size:17px;font-weight:700;border:2px solid var(--line);background:var(--card);color:var(--ink);
+  border-radius:999px;padding:8px 18px;cursor:pointer}
+.pill.like[aria-pressed="true"]{border-color:var(--accent);background:var(--soft);color:var(--accent)}
+.pill:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.react-msg,.fb-msg{font-size:16px;color:var(--ok);font-weight:700;min-height:1.4em;margin:6px 0 0}
+details.fb{border:none;padding:4px 0 0}
+details.fb summary{font-size:18px;color:var(--accent)}
+.fb-form label{display:block;font-size:17px;font-weight:700;margin-top:14px}
+.fb-form textarea,.fb-form input{display:block;width:100%;margin-top:6px;font-family:inherit;font-size:17px;line-height:1.6;
+  border:2px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--card);color:var(--ink)}
+.fb-form textarea:focus,.fb-form input:focus{outline:none;border-color:var(--accent)}
+.fb-form .btn{max-width:260px}
+textarea.hidden-src{position:absolute;left:-9999px;width:1px;height:1px}
+textarea.shown-src{display:block;width:100%;height:220px;margin-top:12px;font-size:16px;line-height:1.6;
+  border:2px solid var(--accent);border-radius:12px;padding:12px;background:var(--card);color:var(--ink);font-family:inherit}
+.jump{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 0}
+.jump a{font-size:17px;font-weight:700;text-decoration:none;color:var(--accent);border:2px solid var(--accent);border-radius:999px;padding:6px 16px}
+.start-card{border:2px solid var(--accent);background:var(--soft)}
+.start-card .btn{max-width:320px}
+a.post-link{display:block;text-decoration:none;color:inherit}
+a.post-link:hover h3,a.post-link:focus-visible h3{color:var(--accent)}
+a.post-link:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border-radius:18px}
+.post-link .card{padding:22px 24px}
+.post-link h3{margin:2px 0 6px;line-height:1.45}
+.post-link p{margin:0;color:var(--muted);font-size:17px}
+.post-link .date{font-size:15px;color:var(--muted);margin-left:4px}
+.top{padding:24px 0 0;font-size:17px}
+.top a{color:var(--accent);text-decoration:none;font-weight:700}
+.post-head{padding:24px 0 8px}
+.post-head h1{font-size:clamp(28px,5.5vw,38px);margin:6px 0 12px}
+.post-body h2{margin:40px 0 10px}
+.post-body h3{margin:28px 0 6px}
+.post-body p{margin:14px 0}
+.post-body blockquote{margin:20px 0;padding:14px 20px;border-left:5px solid var(--accent);background:var(--soft);border-radius:10px;font-weight:700}
+.post-body .sum{background:var(--soft);border-radius:12px;padding:16px 20px}
+.post-body pre.prompt{white-space:pre-wrap;word-break:break-word;font-family:inherit;font-size:17px;line-height:1.7;
+  background:var(--card);border:2px solid var(--line);border-radius:12px;padding:14px 16px;margin:12px 0}
+.post-body figure{margin:18px 0}
+.post-body img{display:block;max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+.post-body figcaption{font-size:16px;color:var(--muted);text-align:center;margin-top:8px}
+.post-body hr{border:none;border-top:1px solid var(--line);margin:32px 0}
+.post-body .video{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;margin:20px 0}
+.post-body .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.react-card{margin-top:40px}
+.more{display:grid;gap:4px;padding:8px 0}
+@media (min-width:700px){.more{grid-template-columns:1fr 1fr;gap:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="top"><a href="../index.html">← 讓你的 AI 變好用</a></nav>
+
+<article class="post" id="ai-workout-reflection">
+  <header class="post-head">
+    <span class="tag">心得</span>
+    <h1>不是完美課表，是你能開始做的課表</h1>
+    <p class="lead">用 AI 幫 26 位同學設計訓練課表後，我重新想了一次設計課表的意義：AI 加快的是流程，課表的價值在於讓人看了會想開始。</p>
+    <p class="note">發表於 2026 年 7 月 19 日</p>
+  </header>
+  <div class="post-body">
+<p class="sum"><strong>用 AI 設計了 26 位同學的訓練課表後，</strong>我重新思考設計課表的意義：課表的價值不是完美，而是讓人看了會想開始。</p>
+<p>停下來想，我覺得這件事情很重要。</p>
+<p>也就是，真實、認真地去思考：你到底想要從做這件事情裡獲得什麼？</p>
+<p>我認為，不管是有形的獲得，還是無形的獲得，大部分人在嘗試或從事某件事情的時候，其實都會帶著一種期待，不會是完全無所求的。</p>
+<p>運動也是。你還是會希望運動能帶給你快樂的感覺。</p>
+<p>訓練也是。也許你沒有那麼喜歡那些動作，但你很期待挑戰自己、突破新的重量，並感覺到：</p>
+<blockquote>「哇，我今天很有成就感。」</blockquote>
+<p>所以，我們其實都希望在每個地方、每件事情上，獲得一些東西。只是那個「獲得」，有時候不是那麼容易被找到。</p>
+
+<h2>AI 能加快流程，但不能取代判斷</h2>
+<p>這陣子我在設計客製化課表。</p>
+<p>本來以為這件事可以很簡單，但殊不知，它其實挺麻煩的。因為回過頭來，每一份課表，我還是要思考：</p>
+<ul>
+  <li>針對這個人，有沒有什麼更好的動作？</li>
+  <li>有沒有更好的設計方式？</li>
+  <li>怎麼讓它操作起來是容易的？</li>
+</ul>
+<p>我本來做這件事情的初衷，是希望透過 AI 降低時間成本，進而幫助更多人找到一個簡單的方式，開始進行自主的肌力訓練。</p>
+<p>但我後來發現，這件事情有點不太可行。如果從商業的框架去評估，我在這件事情上，其實還是得花很大的時間去思考與權衡。</p>
+<p>當對方實際操作時，會遇到什麼樣的問題？會碰到什麼樣的阻礙？我還是必須一步一步去思考。</p>
+<p>當然，AI 確實可以加快一些速度。但它的快，更多是流程上的快。它可以不用再讓我重複複製產生，也可以很快地幫忙找出 YouTube 影片。</p>
+<p>但那一度也讓我懷疑：做課表這件事情的效益，其實是不是蠻差的？</p>
+
+<h2>重新學會用「活生生的人」來看課表</h2>
+<p>我總共幫 26 位同學設計課表，大概花了 17 天的時間。當然，中間有好幾天是我在耍廢。</p>
+<p>但在看著他們的狀況，幫對方思考他的處境時，我一直在想：到底有哪些方式，可以克服他的日常？到底怎麼樣的訓練，才會更貼合他的生活？</p>
+<p>這個過程，讓我有一種重新學習到新東西的感覺。我重新學到的一件事情是：</p>
+<blockquote>要用一個「活生生的人」的角度去思考課表。</blockquote>
+<p>我們不該只是從訓練原則、訓練法則，去想著怎麼讓課表更完美。</p>
+<p>我不是要設計一個完美的課表給你。我是要設計一個「你能夠執行」的課表給你。</p>
+
+<h2>讓人看了會想開始，才是這份課表的價值</h2>
+<p>這個想法上的突破，讓我突然覺得這件事情變得更有趣了。它好像又沒有那麼枯燥，也不只是例行公事。</p>
+<p>我希望你們拿到這份課表的時候，會覺得：</p>
+<blockquote>「喔！它蠻簡單的，可以試試看。」</blockquote>
+<p>雖然這件事情還在實驗當中，但這個想法與思路，讓我開啟了新的可能。在過程中，它帶給我很多想法上的改變，甚至還讓我修改了個人簡介與自我介紹。</p>
+<p>這件事本來被我視為一件很有挑戰性、很困難、很枯燥，而且很有可能會失敗的事情。後來，因為這一連串心態與想法上的改變，我突然覺得它又變得有趣了起來。</p>
+<p>以前我只是單純想說：「用 AI 設計課表」這件事是可行的。或許可以幫我賺錢 XD</p>
+<p>但現在我認為，那個可行性來自於：我得讓這份課表真的能讓你在看到之後，產生「我可以試試看」的想法。</p>
+
+  </div>
+
+  <div class="card react-card">
+    <p style="font-weight:700;margin:0">這篇對你有幫助嗎？</p>
+    <div class="react" data-resource="ai-workout-reflection" data-title="不是完美課表，是你能開始做的課表">
+      <button class="pill like" type="button" aria-pressed="false">👍 有幫助 <span class="n"></span></button>
+      <button class="pill share" type="button">↗ 分享給朋友</button>
+    </div>
+    <p class="react-msg" aria-live="polite"></p>
+    <details class="fb">
+      <summary>看完有什麼想法？告訴我</summary>
+      <form class="fb-form" data-resource="ai-workout-reflection">
+        <label>有幫助的地方<textarea name="good" rows="3" maxlength="1000"></textarea></label>
+        <label>看不懂或想再多知道的地方<textarea name="bad" rows="3" maxlength="1000"></textarea></label>
+        <label>暱稱（可不填）<input name="name" maxlength="30"></label>
+        <button class="btn primary" type="submit">送出回饋</button>
+        <p class="note">不用留 Email，匿名也可以。</p>
+        <p class="fb-msg" aria-live="polite"></p>
+      </form>
+    </details>
+  </div>
+</article>
+
+<section class="more">
+  <a class="btn ghost" href="../index.html#articles">看其他文章</a>
+  <a class="btn primary" href="../index.html#skills">去拿免費技能包</a>
+</section>
+
+<footer>
+  <p>網站設計：Joyce T｜<a href="https://www.facebook.com/profile.php?id=541093149" target="_blank" rel="noopener" style="color:var(--accent)">Facebook</a></p>
+  <p>讓你的 AI 變好用・帶你一步步用好 AI</p>
+</footer>
+</div>
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var id = btn.getAttribute('data-copy');
+    var src = document.getElementById(id);
+    var msg = document.getElementById('copied-' + id);
+    var text = src.value;
+    function done(ok){
+      if (ok) { msg.textContent = '已複製！打開 Claude 貼上送出就好'; return; }
+      msg.textContent = '自動複製沒成功，請把下面整段文字全選、複製';
+      src.className = 'shown-src'; src.removeAttribute('aria-hidden'); src.removeAttribute('tabindex');
+      src.focus(); src.select();
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function(){done(true)}, function(){fallback()});
+    } else { fallback(); }
+    function fallback(){
+      try { src.style.position='fixed'; src.style.left='0'; src.select(); var ok=document.execCommand('copy');
+        src.style.position=''; src.style.left=''; done(ok);} catch(e){ done(false); }
+    }
+  });
+});
+
+var API = "https://script.google.com/macros/s/AKfycbwMLUq48ZNEPlzWWwNbAV92mQNIG6Xg6tk-CS7udGBWaS5xW2L2_0vTMK5hBzTzhuG1/exec";
+function store(k, v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k, v);}catch(e){ return null; } }
+function api(payload){
+  if(!API) return Promise.reject(new Error('no-api'));
+  return fetch(API, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload)})
+    .then(function(r){ return r.json(); }).then(function(j){ if(!j.ok) throw new Error('bad'); return j; });
+}
+function loadStats(){
+  if(!API) return;
+  fetch(API).then(function(r){ return r.json(); }).then(function(s){
+    document.querySelectorAll('.react').forEach(function(box){
+      var st = s[box.dataset.resource]; var n = box.querySelector('.n');
+      if(st && st.likes) n.textContent = st.likes;
+    });
+  }).catch(function(){});
+}
+document.querySelectorAll('.react').forEach(function(box){
+  var res = box.dataset.resource, like = box.querySelector('.like'), msg = box.nextElementSibling;
+  if(store('liked:'+res)) like.setAttribute('aria-pressed','true');
+  like.addEventListener('click', function(){
+    if(like.getAttribute('aria-pressed')==='true'){ msg.textContent='你已經按過讚了，謝謝！'; return; }
+    like.setAttribute('aria-pressed','true'); store('liked:'+res,'1');
+    var n = like.querySelector('.n'); n.textContent = (parseInt(n.textContent||'0',10)+1);
+    msg.textContent = '謝謝你的讚！';
+    api({type:'like', resource: res}).catch(function(){});
+  });
+  box.querySelector('.share').addEventListener('click', function(){
+    var a = box.closest('article'); var url = location.origin + location.pathname + (a && a.id && !a.classList.contains('post') ? '#' + a.id : '');
+    var title = box.dataset.title + '｜讓你的 AI 變好用';
+    if(navigator.share){ navigator.share({title:title, url:url}).catch(function(){}); return; }
+    var fbUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+    var done = function(){ msg.innerHTML = '連結已複製，可以貼給朋友。也可以 <a href="'+fbUrl+'" target="_blank" rel="noopener">分享到 Facebook</a>'; };
+    if(navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(url).then(done, done); } else { done(); }
+  });
+});
+document.querySelectorAll('.fb-form').forEach(function(f){
+  var out = f.querySelector('.fb-msg');
+  f.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var good = f.good.value.trim(), bad = f.bad.value.trim();
+    if(!good && !bad){ out.style.color='var(--muted)'; out.textContent='至少填一格再送出喔'; return; }
+    var btn = f.querySelector('button[type=submit]'); btn.disabled = true; out.style.color=''; out.textContent='送出中…';
+    api({type:'feedback', resource:f.dataset.resource, good:good, bad:bad, name:f.name.value.trim()})
+      .then(function(){ f.reset(); out.textContent='收到了，謝謝你！'; })
+      .catch(function(){ out.style.color='var(--muted)'; out.textContent='送出失敗，請稍後再試一次'; })
+      .finally(function(){ btn.disabled = false; });
+  });
+});
+loadStats();
+</script>
+</body>
+</html>

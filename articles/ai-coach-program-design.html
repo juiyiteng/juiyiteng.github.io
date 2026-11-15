@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>如何用 AI 讓肌力訓練課表設計速度提升 10 倍？我的 4 大步驟｜讓你的 AI 變好用</title>
+<meta name="description" content="以前開一份課表要 1～2 小時，現在 5～10 分鐘。教練怎麼用 ChatGPT 整理會員資料、微調課表，再把自己的邏輯存成可以重複用的「訓練模式」。">
+<meta property="og:title" content="如何用 AI 讓肌力訓練課表設計速度提升 10 倍？我的 4 大步驟">
+<meta property="og:description" content="以前開一份課表要 1～2 小時，現在 5～10 分鐘。教練怎麼用 ChatGPT 整理會員資料、微調課表，再把自己的邏輯存成可以重複用的「訓練模式」。">
+<meta property="og:type" content="article">
+<style>
+:root{
+  --bg:#FAF7F2; --card:#FFFFFF; --ink:#1F2328; --muted:#5A5F66; --line:#E6E0D6;
+  --accent:#3B4BC8; --accent-ink:#FFFFFF; --soft:#EEF0FB; --ok:#1E7A4C;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16181D; --card:#1F222A; --ink:#ECEDEF; --muted:#A7ABB3; --line:#2E323C;
+    --accent:#8C9BFF; --accent-ink:#11131A; --soft:#262B40; --ok:#5FD39A;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16181D; --card:#1F222A; --ink:#ECEDEF; --muted:#A7ABB3; --line:#2E323C;
+  --accent:#8C9BFF; --accent-ink:#11131A; --soft:#262B40; --ok:#5FD39A;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  font-size:19px;line-height:1.75}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header{padding:56px 0 28px}
+.brand{font-size:15px;font-weight:700;letter-spacing:.08em;color:var(--accent);margin:0 0 12px}
+h1{font-size:clamp(30px,6vw,42px);line-height:1.3;margin:0 0 16px;font-weight:800}
+.tagline{font-size:22px;font-weight:700;margin:-4px 0 16px}
+.lead{font-size:20px;color:var(--muted);margin:0}
+h2{font-size:26px;line-height:1.4;margin:0 0 8px}
+h3{font-size:21px;margin:28px 0 8px}
+section{padding:24px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 24px;margin:16px 0}
+.tag{display:inline-block;font-size:15px;font-weight:700;background:var(--soft);color:var(--accent);
+  border-radius:999px;padding:2px 12px;margin:0 6px 10px 0}
+.card p{margin:8px 0}
+ul{padding-left:1.2em;margin:8px 0}
+li{margin:4px 0}
+.ways{display:grid;gap:16px;margin-top:20px}
+@media (min-width:700px){.ways{grid-template-columns:1fr 1fr}}
+.way{border:2px solid var(--line);border-radius:14px;padding:20px}
+.way.easy{border-color:var(--accent)}
+.way h4{font-size:20px;margin:0 0 4px}
+.way .who{font-size:16px;color:var(--muted);margin:0 0 12px}
+ol{padding-left:1.3em;margin:8px 0}
+ol li{margin:6px 0}
+.btn{display:block;width:100%;text-align:center;font-size:19px;font-weight:700;border-radius:12px;
+  padding:14px 16px;margin-top:14px;border:2px solid var(--accent);cursor:pointer;text-decoration:none;font-family:inherit}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.copied{color:var(--ok);font-weight:700;font-size:17px;text-align:center;min-height:1.6em;margin:8px 0 0}
+.note{font-size:17px;color:var(--muted)}
+details{border-top:1px solid var(--line);padding:14px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;font-size:19px}
+details p{margin:10px 0 0}
+kbd{font-family:inherit;font-size:16px;background:var(--soft);border-radius:6px;padding:1px 7px}
+footer{padding:40px 0 56px;font-size:16px;color:var(--muted)}
+footer p{margin:4px 0}
+.consult{border:2px solid var(--accent);background:var(--soft)}
+.consult .btn{max-width:360px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:12px 0}
+.svc h4{font-size:20px;margin:0 0 4px}
+.svc p{margin:0}
+.svc.fit{border:2px dashed var(--accent)}
+.react{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.pill{font-family:inherit;font-size:17px;font-weight:700;border:2px solid var(--line);background:var(--card);color:var(--ink);
+  border-radius:999px;padding:8px 18px;cursor:pointer}
+.pill.like[aria-pressed="true"]{border-color:var(--accent);background:var(--soft);color:var(--accent)}
+.pill:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.react-msg,.fb-msg{font-size:16px;color:var(--ok);font-weight:700;min-height:1.4em;margin:6px 0 0}
+details.fb{border:none;padding:4px 0 0}
+details.fb summary{font-size:18px;color:var(--accent)}
+.fb-form label{display:block;font-size:17px;font-weight:700;margin-top:14px}
+.fb-form textarea,.fb-form input{display:block;width:100%;margin-top:6px;font-family:inherit;font-size:17px;line-height:1.6;
+  border:2px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--card);color:var(--ink)}
+.fb-form textarea:focus,.fb-form input:focus{outline:none;border-color:var(--accent)}
+.fb-form .btn{max-width:260px}
+textarea.hidden-src{position:absolute;left:-9999px;width:1px;height:1px}
+textarea.shown-src{display:block;width:100%;height:220px;margin-top:12px;font-size:16px;line-height:1.6;
+  border:2px solid var(--accent);border-radius:12px;padding:12px;background:var(--card);color:var(--ink);font-family:inherit}
+.jump{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 0}
+.jump a{font-size:17px;font-weight:700;text-decoration:none;color:var(--accent);border:2px solid var(--accent);border-radius:999px;padding:6px 16px}
+.start-card{border:2px solid var(--accent);background:var(--soft)}
+.start-card .btn{max-width:320px}
+a.post-link{display:block;text-decoration:none;color:inherit}
+a.post-link:hover h3,a.post-link:focus-visible h3{color:var(--accent)}
+a.post-link:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border-radius:18px}
+.post-link .card{padding:22px 24px}
+.post-link h3{margin:2px 0 6px;line-height:1.45}
+.post-link p{margin:0;color:var(--muted);font-size:17px}
+.post-link .date{font-size:15px;color:var(--muted);margin-left:4px}
+.top{padding:24px 0 0;font-size:17px}
+.top a{color:var(--accent);text-decoration:none;font-weight:700}
+.post-head{padding:24px 0 8px}
+.post-head h1{font-size:clamp(28px,5.5vw,38px);margin:6px 0 12px}
+.post-body h2{margin:40px 0 10px}
+.post-body h3{margin:28px 0 6px}
+.post-body p{margin:14px 0}
+.post-body blockquote{margin:20px 0;padding:14px 20px;border-left:5px solid var(--accent);background:var(--soft);border-radius:10px;font-weight:700}
+.post-body .sum{background:var(--soft);border-radius:12px;padding:16px 20px}
+.post-body pre.prompt{white-space:pre-wrap;word-break:break-word;font-family:inherit;font-size:17px;line-height:1.7;
+  background:var(--card);border:2px solid var(--line);border-radius:12px;padding:14px 16px;margin:12px 0}
+.post-body figure{margin:18px 0}
+.post-body img{display:block;max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+.post-body figcaption{font-size:16px;color:var(--muted);text-align:center;margin-top:8px}
+.post-body hr{border:none;border-top:1px solid var(--line);margin:32px 0}
+.post-body .video{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;margin:20px 0}
+.post-body .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.react-card{margin-top:40px}
+.more{display:grid;gap:4px;padding:8px 0}
+@media (min-width:700px){.more{grid-template-columns:1fr 1fr;gap:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="top"><a href="../index.html">← 讓你的 AI 變好用</a></nav>
+
+<article class="post" id="ai-coach-program-design">
+  <header class="post-head">
+    <span class="tag">教學</span>
+    <h1>如何用 AI 讓肌力訓練課表設計速度提升 10 倍？我的 4 大步驟</h1>
+    <p class="lead">以前開一份課表要 1～2 小時，現在 5～10 分鐘。教練怎麼用 ChatGPT 整理會員資料、微調課表，再把自己的邏輯存成可以重複用的「訓練模式」。</p>
+    <p class="note">發表於 2025 年 2 月 25 日</p>
+  </header>
+  <div class="post-body">
+<p>現在我只需要 5～10 分鐘，就可以設計一份符合訓練邏輯、也符合會員狀況的訓練課表。這在以前需要 1～2 小時，透過 ChatGPT，我把時間縮短到 5～10 分鐘。</p>
+
+<h2>1. 肌力訓練是科學，課表設計是藝術，但現實是你沒時間</h2>
+<p>雖然肌力訓練的底層邏輯大致相同，但每個人的身體狀況、心理狀態及對訓練的耐受度不同，課表仍需要個別化調整。同樣一份課表，對 A 來說可能很有效，對 B 來說可能是一場災難。因此，私人教練通常需要花大量時間調整與設計個別化課表。</p>
+<p>此外，你辛苦設計好的課表，可能會發現會員根本無法完成，或他不喜歡，又或是臨時受傷、生病，你就得重新修正課表。</p>
+<p>「啊就修改就好，有什麼難的？」可能有些教練會這樣想。沒錯，如果你是超級資深的教練，已經累積了大量經驗，你可能可以憑直覺快速決定怎麼調整。但當會員數變多、時間壓力加大時，這種做法仍然難以維持。</p>
+<p>私人課這麼貴，其實是有原因的。設計課表本身就非常需要花教練的腦力，加上每次上課還要調整課表，光這些事就可以耗掉我大半天的時間。</p>
+<p>對某些會員來說，拿到一張專屬自己的課表，可以大大提升運動動機。即使他不一定會去做，光是我幫他做這件事，就能提高會員對教練的信賴，以及他想要運動的念頭。</p>
+<p>然而，你很難對所有人都這樣做。因為，你沒時間……</p>
+<p>讓設計課表這件事變得更簡單，我就更有餘裕去幫助更多人進入肌力訓練的世界，這才是我真正的目的。這也是我接觸 AI 後，瘋狂使用它的原因。</p>
+
+<h2>2. AI 幫我解決課表設計的 5 大困擾</h2>
+<p>以下是我過去在設計課表時，最困擾我的 5 個問題：</p>
+<ol>
+  <li><strong>會員數越多，越難仔細調整每位會員的課表。</strong>我得很誠實地說，當你的會員數超過 20 位，除非你單身沒小孩，不然你真的很難每天都在思考：「我要怎麼調整這個會員的動作？嗯，換成單腳抬高蹲嗎？還是不要改動作，改次數就好？」</li>
+  <li><strong>要符合肌力訓練的邏輯，每份課表需要花 30～40 分鐘思考與修改，有時甚至更久。</strong>我不是那種很有邏輯的教練，我的理化跟數學爛得可以。思考課表是我最痛苦的時刻。不是想不出來，而是我會在腦子裡一直跟自己對打：「這樣可以嗎？好像進展太快了？」「他不喜歡太操，那我是要減少重量還是減少組數？」光是腦內互打，就要死掉我一半的細胞。</li>
+  <li><strong>會員實際執行時，可能做不完，或因生病受傷需要臨時調整。</strong>即使我練到可以在半小時內設計出一份課表，更常見的是「突發狀況」。訓練的底層邏輯一樣，不需要大改課表，但修修改改的過程，也很耗費我的精氣神。</li>
+  <li><strong>課表調整多次後，容易忘記前面的進度。</strong>有些會員跟了你超過 2 年，你大概也會忘記他剛開始的身體狀況，和每次上課出現的情況。</li>
+  <li><strong>學到新知識後，想應用到課表中，卻不確定怎麼整合。</strong>這是我最大的困擾。學了很多知識，能用上的很有限，甚至根本不知道怎麼用到會員身上。你可能要花好幾年，才會「頓悟」：「啊～原來是這樣啊～」但幾年的時間，可以讓一個原本充滿熱情的教練，撐不下去離開這個產業。這樣的例子，我聽得太多，也看得太多。</li>
+</ol>
+
+<h2>3. 我如何運用 AI 來設計課表？</h2>
+<h3>第一步：提供會員的基本資料</h3>
+<p>這一步很關鍵，也是一般人與教練最大的差異。多數人可能只會輸入「我要增肌」「我要減脂」，但教練會提供更完整的資訊，例如：</p>
+<ul>
+  <li>目標：肌耐力訓練，8～12 週計畫</li>
+  <li>特殊條件：糖尿病、高血壓、需要減重</li>
+  <li>訓練頻率：自主訓練每週 2～3 次，每次 30 分鐘</li>
+  <li>可使用設備：自重訓練、彈力帶</li>
+  <li>情緒：不喜歡太操累，要注意休息時間</li>
+</ul>
+<h3>第二步：讓 AI 產生基礎課表並微調</h3>
+<p>AI 產出的第一版課表（圖一）通常無法直接使用，只能當大綱。你仍需要根據專業背景進一步調整，給它更多的要求跟資訊。</p>
+<figure><img src="../img/coach-1-first.png" alt="AI 產出的第一版課表" loading="lazy"><figcaption>圖一：這個課表不是不行，但沒那麼符合會員的需求，因為有很多動作是他不會做的。</figcaption></figure>
+<p>例如：「他一週每個動作要有 12 組的訓練量」「要有單側的訓練動作」「仰臥起坐不行，改成棒式」「做成表格，用週為單位」。</p>
+<p>像範例中的會員有脊椎側彎，我可能要加強單邊訓練，但 GPT 給我一整個課表都是單邊訓練，那個會死人……</p>
+<p>我必須微調：「不對，主要訓練都是雙邊，但每個課表可以加入一個單邊的訓練動作。」</p>
+<p>最後，你會產出一個最符合你訓練邏輯、也符合會員需求的課表。整個過程不用超過 10 分鐘，你只需要講話就好。</p>
+<figure><img src="../img/coach-2-adjusted.png" alt="調整後的第一週課表" loading="lazy"><figcaption>圖二：這個課表就比較符合會員的要求和能力，至少動作都是他做過的。</figcaption></figure>
+<h3>第三步：把課表設計邏輯，整理成自己的訓練模式</h3>
+<p>調整到滿意後，記得請 GPT 把你給它的訓練指令，整理成你個人的「訓練模式」。</p>
+<p>講完第一個會員的課表後，我就說：「把以上我給你的訓練指令，整理建立『丸子增肌訓練 1』模式。」未來遇到類似的會員，只需要說：「請依照『丸子增肌訓練 1』設計這個人的課表。」（圖三）</p>
+<p>登！3 秒就能產生下一位會員的課表。即使還需要調整，調整的次數也會越來越少。</p>
+<figure><img src="../img/coach-3-mode.png" alt="存成「丸子增肌訓練1」的訓練模式" loading="lazy"><figcaption>圖三：把模式設定好，以後遇到同樣需求的會員，直接套用就好。</figcaption></figure>
+<h3>第四步：根據會員回饋持續優化</h3>
+<p>個別化課表最麻煩的就是修改。過去，我得在下班後一個個思考會員的進度與調整方式。</p>
+<p>現在，我可以在課後直接「講給」ChatGPT 聽，請它記錄會員今天的狀況。下次上課，只要請 ChatGPT 整理會員的狀態，就能快速調整課表。我甚至可以請它列出這位會員一整年的身體狀況，讓會員知道自己這一年的進步。</p>
+
+<h2>4. 運用 AI 設計課表的心得</h2>
+<h3>AI 無法取代教練，但能提升教練價值</h3>
+<p>AI 幫教練節省時間，但決策仍需要教練來做。<strong>「訓練是科學，開課表是藝術」</strong>，ChatGPT 只能輔助，無法取代教練的專業觀察。</p>
+<p>上面說了很多 GPT 的好處，但它還是有「做不到」的事。它沒辦法幫你觀察會員的狀況，像是情緒或動作進步的變化，這些都必須靠自己。你還是得當輸入的那個人。</p>
+<p>ChatGPT 可以很快地整理好你的思緒跟資料，但決定權還是在教練身上。</p>
+<h3>AI 讓課表設計更有效率，提升會員體驗</h3>
+<p>透過 ChatGPT，我縮短了課表設計時間，也提高了個人化程度，讓我的專注力更放在會員本人身上。我只需要專注在她今天的狀況，告訴 ChatGPT；後面的整理資料跟調整，都可以透過我跟 AI 的對話完成。</p>
+<p>這讓我能真正把時間花在「幫助會員變得更好」這件事上。我甚至可以提供更多額外的價值，例如更快開出回家訓練課表，或是錄影給會員看動作；也可以更快把研習學到的資訊，應用到實際的課表跟教學上。</p>
+<p>能活在 AI 的時代，我真的很幸運。</p>
+
+  </div>
+
+  <div class="card react-card">
+    <p style="font-weight:700;margin:0">這篇對你有幫助嗎？</p>
+    <div class="react" data-resource="ai-coach-program-design" data-title="如何用 AI 讓肌力訓練課表設計速度提升 10 倍？我的 4 大步驟">
+      <button class="pill like" type="button" aria-pressed="false">👍 有幫助 <span class="n"></span></button>
+      <button class="pill share" type="button">↗ 分享給朋友</button>
+    </div>
+    <p class="react-msg" aria-live="polite"></p>
+    <details class="fb">
+      <summary>看完有什麼想法？告訴我</summary>
+      <form class="fb-form" data-resource="ai-coach-program-design">
+        <label>有幫助的地方<textarea name="good" rows="3" maxlength="1000"></textarea></label>
+        <label>看不懂或想再多知道的地方<textarea name="bad" rows="3" maxlength="1000"></textarea></label>
+        <label>暱稱（可不填）<input name="name" maxlength="30"></label>
+        <button class="btn primary" type="submit">送出回饋</button>
+        <p class="note">不用留 Email，匿名也可以。</p>
+        <p class="fb-msg" aria-live="polite"></p>
+      </form>
+    </details>
+  </div>
+</article>
+
+<section class="more">
+  <a class="btn ghost" href="../index.html#articles">看其他文章</a>
+  <a class="btn primary" href="../index.html#skills">去拿免費技能包</a>
+</section>
+
+<footer>
+  <p>網站設計：Joyce T｜<a href="https://www.facebook.com/profile.php?id=541093149" target="_blank" rel="noopener" style="color:var(--accent)">Facebook</a></p>
+  <p>讓你的 AI 變好用・帶你一步步用好 AI</p>
+</footer>
+</div>
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var id = btn.getAttribute('data-copy');
+    var src = document.getElementById(id);
+    var msg = document.getElementById('copied-' + id);
+    var text = src.value;
+    function done(ok){
+      if (ok) { msg.textContent = '已複製！打開 Claude 貼上送出就好'; return; }
+      msg.textContent = '自動複製沒成功，請把下面整段文字全選、複製';
+      src.className = 'shown-src'; src.removeAttribute('aria-hidden'); src.removeAttribute('tabindex');
+      src.focus(); src.select();
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function(){done(true)}, function(){fallback()});
+    } else { fallback(); }
+    function fallback(){
+      try { src.style.position='fixed'; src.style.left='0'; src.select(); var ok=document.execCommand('copy');
+        src.style.position=''; src.style.left=''; done(ok);} catch(e){ done(false); }
+    }
+  });
+});
+
+var API = "https://script.google.com/macros/s/AKfycbwMLUq48ZNEPlzWWwNbAV92mQNIG6Xg6tk-CS7udGBWaS5xW2L2_0vTMK5hBzTzhuG1/exec";
+function store(k, v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k, v);}catch(e){ return null; } }
+function api(payload){
+  if(!API) return Promise.reject(new Error('no-api'));
+  return fetch(API, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload)})
+    .then(function(r){ return r.json(); }).then(function(j){ if(!j.ok) throw new Error('bad'); return j; });
+}
+function loadStats(){
+  if(!API) return;
+  fetch(API).then(function(r){ return r.json(); }).then(function(s){
+    document.querySelectorAll('.react').forEach(function(box){
+      var st = s[box.dataset.resource]; var n = box.querySelector('.n');
+      if(st && st.likes) n.textContent = st.likes;
+    });
+  }).catch(function(){});
+}
+document.querySelectorAll('.react').forEach(function(box){
+  var res = box.dataset.resource, like = box.querySelector('.like'), msg = box.nextElementSibling;
+  if(store('liked:'+res)) like.setAttribute('aria-pressed','true');
+  like.addEventListener('click', function(){
+    if(like.getAttribute('aria-pressed')==='true'){ msg.textContent='你已經按過讚了，謝謝！'; return; }
+    like.setAttribute('aria-pressed','true'); store('liked:'+res,'1');
+    var n = like.querySelector('.n'); n.textContent = (parseInt(n.textContent||'0',10)+1);
+    msg.textContent = '謝謝你的讚！';
+    api({type:'like', resource: res}).catch(function(){});
+  });
+  box.querySelector('.share').addEventListener('click', function(){
+    var a = box.closest('article'); var url = location.origin + location.pathname + (a && a.id && !a.classList.contains('post') ? '#' + a.id : '');
+    var title = box.dataset.title + '｜讓你的 AI 變好用';
+    if(navigator.share){ navigator.share({title:title, url:url}).catch(function(){}); return; }
+    var fbUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+    var done = function(){ msg.innerHTML = '連結已複製，可以貼給朋友。也可以 <a href="'+fbUrl+'" target="_blank" rel="noopener">分享到 Facebook</a>'; };
+    if(navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(url).then(done, done); } else { done(); }
+  });
+});
+document.querySelectorAll('.fb-form').forEach(function(f){
+  var out = f.querySelector('.fb-msg');
+  f.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var good = f.good.value.trim(), bad = f.bad.value.trim();
+    if(!good && !bad){ out.style.color='var(--muted)'; out.textContent='至少填一格再送出喔'; return; }
+    var btn = f.querySelector('button[type=submit]'); btn.disabled = true; out.style.color=''; out.textContent='送出中…';
+    api({type:'feedback', resource:f.dataset.resource, good:good, bad:bad, name:f.name.value.trim()})
+      .then(function(){ f.reset(); out.textContent='收到了，謝謝你！'; })
+      .catch(function(){ out.style.color='var(--muted)'; out.textContent='送出失敗，請稍後再試一次'; })
+      .finally(function(){ btn.disabled = false; });
+  });
+});
+loadStats();
+</script>
+</body>
+</html>
