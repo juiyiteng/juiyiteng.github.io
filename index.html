@@ -143,11 +143,11 @@ a.post-link:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border
   <h2 id="skills">技能包</h2>
   <p class="note" style="margin:0 0 4px">整理好的 AI 工作流程。AI 會先問你問題，再一步一步幫你做完。</p>
 
-  <article class="card" id="travel-video">
-    <span class="tag">影片</span><span class="tag">新手可用</span>
-    <h3 style="margin-top:4px">旅遊影片 AI 剪輯</h3>
-    <p>出去玩拍了一堆影片，回來都沒剪？跟 AI 說「我要剪旅遊影片」，它會先問你去哪裡、想剪成短片還是完整版、要什麼感覺，整理好計畫給你看，再開始剪。</p>
-    <p class="note">先剪開頭 10–15 秒給你確認，對了才剪整支。你的原始影片不會被動到。</p>
+  <article class="card" id="plan-first">
+    <span class="tag">規劃</span><span class="tag">新手可用</span>
+    <h3 style="margin-top:4px">動手前先想清楚</h3>
+    <p>想請 AI 幫忙，卻說不清楚自己要什麼？辦同學會、做一個記帳網頁、整理家裡的照片，都可以先用它。AI 會一次問你一個問題，給你兩三個做法比一比，再寫成一份計畫書。</p>
+<p class="note">計畫書你說可以，AI 才開始動手。在那之前，它不會改你的任何檔案。</p>
 
     <div class="ways">
       <div class="way easy">
@@ -158,8 +158,191 @@ a.post-link:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border
           <li>按下面的按鈕，複製整段說明</li>
           <li>貼進對話框送出，AI 就會開始問你問題</li>
         </ol>
-        <button class="btn primary" type="button" data-copy="src-travel">複製給 AI 的說明</button>
-        <p class="copied" id="copied-src-travel" aria-live="polite"></p>
+        <button class="btn primary" type="button" data-copy="src-plan-first">複製給 AI 的說明</button>
+        <p class="copied" id="copied-src-plan-first" aria-live="polite"></p>
+        <p class="note">想做的事情說不清楚也沒關係，AI 會一題一題問，最後給你一份計畫書。</p>
+      </div>
+      <div class="way">
+        <h4>進階用法：安裝技能包</h4>
+        <p class="who">想讓 AI 規劃完，直接照計畫書動手做</p>
+        <ol>
+          <li>下載壓縮檔，點兩下解壓縮</li>
+          <li>打開裡面的「使用說明_先看這份」</li>
+          <li>照著把技能包放進 Claude 桌面版</li>
+        </ol>
+        <a class="btn ghost" href="downloads/plan-first.zip">下載技能包（4 KB）</a>
+        <p class="note">需要 Claude 桌面版的 Code 分頁（付費方案）。</p>
+      </div>
+    </div>
+    <div class="react" data-resource="plan-first" data-title="動手前先想清楚">
+      <button class="pill like" type="button" aria-pressed="false">👍 有幫助 <span class="n"></span></button>
+      <button class="pill share" type="button">↗ 分享給朋友</button>
+    </div>
+    <p class="react-msg" aria-live="polite"></p>
+    <details class="fb">
+      <summary>用起來怎麼樣？告訴我</summary>
+      <form class="fb-form" data-resource="plan-first">
+        <label>好用的地方<textarea name="good" rows="3" maxlength="1000" placeholder="例如：問完問題，我才知道自己真正想要什麼"></textarea></label>
+        <label>卡住或不好用的地方<textarea name="bad" rows="3" maxlength="1000" placeholder="例如：問題太多，或選項看不懂"></textarea></label>
+        <label>暱稱（可不填）<input name="name" maxlength="30"></label>
+        <button class="btn primary" type="submit">送出回饋</button>
+        <p class="note">不用留 Email，匿名也可以。你的回饋會用來改進技能包。</p>
+        <p class="fb-msg" aria-live="polite"></p>
+      </form>
+    </details>
+    <textarea class="hidden-src" id="src-plan-first" aria-hidden="true" tabindex="-1" readonly>請你照下面這份「動手前先想清楚」流程幫我。現在就從第 1 步開始，一次只問我一個問題。
+
+======== 流程開始 ========
+
+# 動手前先想清楚
+
+使用者常常只有一個模糊的想法，例如「我想辦一場同學會」「我想做一個記帳的網頁」「我想整理家裡的照片」。這份流程讓 AI 先把事情問清楚，寫成一份計畫書，使用者看過、說可以，才開始動手。
+
+核心想法參考自 obra/superpowers 的 brainstorming 技能（MIT 授權），改寫成適合一般人使用的中文版。
+
+## 最重要的規則
+
+使用者確認計畫書之前，不做任何實際動作：不寫程式、不建檔案、不改東西。計畫書本身除外。
+
+事情再簡單也一樣。簡單的事，計畫書寫三五句就好，但流程要走完。
+
+## 怎麼問問題
+
+- 一次只問一個問題。
+- 能給選項就給選項，用 1、2、3 編號，使用者回數字就好。最後一個選項留給「都不是，我想要的是……」。
+- 有推薦的選項，就標「推薦」，用一句話說原因。
+- 一律用白話。使用者沒用專業名詞，你也不要用；非用不可時，後面加一句白話說明。
+- 不說「好問題」「這很有趣」這類客套話，直接回應內容。
+- 如果環境有跳出選項框的工具，可以用它問；沒有就直接在對話裡列編號選項。
+
+## 流程
+
+### 第 1 步：確認要做什麼
+
+使用者已經說了想做什麼，就直接用。還沒說，就問：「你想做什麼？一句話就好，不用很完整。」
+
+接著問這件事比較像哪一種：
+
+1. 做一個新東西（一個活動、一份文件、一個工具、一支影片……）
+2. 解決一個問題（某個東西壞了、卡住了）
+3. 把現有的東西變得更好
+4. 還不確定，請 AI 幫忙釐清
+
+### 第 2 步：先說你的理解
+
+如果是在電腦上、可以讀檔案的環境，先花一點時間看一下目前資料夾裡有什麼，再開始猜。
+
+用 3 到 5 點寫出你目前的理解，每一點都講「使用者會得到什麼」，不講做法細節。例如：
+
+1. 你想做什麼：一個記錄每天花多少錢的小網頁
+2. 怎麼用：手機和電腦打開網頁就能用，不用下載 App
+3. 資料存哪裡：只存在你自己的瀏覽器，換一台電腦就看不到
+4. 這次先做：輸入金額、看清單，先不做圖表
+5. 之後可以再加：圖表、匯出 Excel
+
+然後問：
+
+1. 都對，繼續
+2. 有幾點要改（請告訴我哪幾點）
+3. 大部分不對，重新來
+
+### 第 3 步：問清楚細節
+
+依照第 1 步的類型，挑最重要的問題問，最多 5 題。前面已經確認過的事不要再問。
+
+- 做新東西：給誰用？最重要的一兩件事是什麼？什麼時候要完成？有沒有預算或工具上的限制？
+- 解決問題：什麼時候開始出問題？每次都會，還是偶爾？有沒有錯誤訊息？已經試過什麼？
+- 變得更好：現在最不滿意哪裡？改好之後理想的樣子是什麼？有沒有看過誰做得好？
+
+如果使用者說「直接做吧」「你決定就好」，或回答越來越短，最多再問一個最關鍵的問題，然後說：「好，剩下的我照目前的理解規劃，有不對的地方我們再改。」
+
+### 第 4 步：給兩三個做法比一比
+
+列出 2 到 3 個做法，用表格比較：
+
+| | 做法 A | 做法 B | 做法 C |
+|:--|:--|:--|:--|
+| 做完長什麼樣 | | | |
+| 好處 | | | |
+| 壞處 | | | |
+| 可能卡住的地方 | | | |
+| 你需要做的事 | | | |
+
+表格後面寫：「我推薦做法 X，因為……」，用一句白話說原因。然後請使用者選一個，或說要混合搭配。
+
+只有一個合理做法時，跳過比較，直接說明你建議怎麼做，問使用者可不可以。
+
+### 第 5 步：寫計畫書
+
+照這個格式寫：
+
+```
+# 計畫名稱
+
+## 一句話說完這次要做什麼
+
+## 為什麼要做
+
+## 步驟
+### 第 1 步：……
+- 要做什麼
+- 做完會有什麼
+- 要注意什麼
+（依實際需要列 3 到 8 步）
+
+## 做完你會得到
+
+## 這次不做的事
+
+## 可能遇到的問題，和怎麼處理
+```
+
+寫完自己檢查一遍：
+
+- 有沒有「待確認」「之後再決定」這種空白？有就現在補上。
+- 前後有沒有矛盾？前面選了做法 A，步驟卻在做 B。
+- 步驟超過 8 步，就拆成兩份計畫。
+- 每一步都要具體到「拿到就知道要做什麼」。「適當處理」「做好測試」這種話要改成實際動作。
+
+可以存檔的環境，把計畫書存在目前的資料夾，檔名用「計畫書_年月日_主題.md」，並告訴使用者存在哪裡。一般聊天就直接把計畫書貼在對話裡。
+
+### 第 6 步：問下一步
+
+1. 現在就開始，照計畫書一步一步做
+2. 我想先改計畫書（請告訴我哪裡要改）
+3. 先存著，之後再做
+
+選 1：照計畫書開始做，每做完一步回報一次。
+選 2：改完再檢查一遍，再問一次。
+選 3：告訴使用者之後只要說「照計畫書做」就可以接著做。
+
+## 隨時都要記得
+
+- 使用者想要的東西太大，直接說：「這個範圍比較大，我建議先做〔最核心的部分〕，其他的之後再加。」
+- 只做現在確定需要的，「以後可能用得到」的功能先不做。
+- 使用者想快就快，提醒一次就好，不要一直擋。
+- 全程用繁體中文，開始動手之後的進度回報也一樣。
+
+======== 流程結束 ========</textarea>
+  </article>
+
+  <article class="card" id="travel-video">
+    <span class="tag">影片</span><span class="tag">新手可用</span>
+    <h3 style="margin-top:4px">旅遊影片 AI 剪輯</h3>
+    <p>出去玩拍了一堆影片，回來都沒剪？跟 AI 說「我要剪旅遊影片」，它會先問你去哪裡、想剪成短片還是完整版、要什麼感覺，整理好計畫給你看，再開始剪。</p>
+<p class="note">先剪開頭 10–15 秒給你確認，對了才剪整支。你的原始影片不會被動到。</p>
+
+    <div class="ways">
+      <div class="way easy">
+        <h4>簡單用法：複製貼上</h4>
+        <p class="who">什麼都不用安裝，適合第一次用</p>
+        <ol>
+          <li>打開 Claude，開一個新對話</li>
+          <li>按下面的按鈕，複製整段說明</li>
+          <li>貼進對話框送出，AI 就會開始問你問題</li>
+        </ol>
+        <button class="btn primary" type="button" data-copy="src-travel-video">複製給 AI 的說明</button>
+        <p class="copied" id="copied-src-travel-video" aria-live="polite"></p>
         <p class="note">這種用法 AI 會幫你規劃故事線，給你一份剪輯清單，你再照著在剪映或 CapCut 剪。</p>
       </div>
       <div class="way">
@@ -190,7 +373,7 @@ a.post-link:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border
         <p class="fb-msg" aria-live="polite"></p>
       </form>
     </details>
-    <textarea class="hidden-src" id="src-travel" aria-hidden="true" tabindex="-1" readonly>請你照下面這份「旅遊影片 AI 剪輯」流程幫我。現在就從「第 1 輪」問題開始問我，一次只問一輪。
+    <textarea class="hidden-src" id="src-travel-video" aria-hidden="true" tabindex="-1" readonly>請你照下面這份「旅遊影片 AI 剪輯」流程幫我。現在就從「第 1 輪」問題開始問我，一次只問一輪。
 
 ======== 流程開始 ========
 
