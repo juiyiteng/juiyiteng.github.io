@@ -153,6 +153,175 @@ a.post-link:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border
   <h2 id="skills">技能包</h2>
   <p class="note" style="margin:0 0 4px">整理好的 AI 工作流程。AI 會先問你問題，再一步一步幫你做完。</p>
 
+  <article class="card" id="ig-carousel">
+    <span class="tag">社群</span><span class="tag">圖片</span><span class="tag">新手可用</span>
+    <h3 style="margin-top:4px">IG 輪播圖一次做好</h3>
+    <p>想發 IG 輪播圖，卻不會用設計軟體？把主題或一段文字交給 AI，它會先規劃每一頁要放什麼字，給你確認。你說可以，它再做成一整組 1080×1350 的圖片，最後附上貼文說明文字。</p>
+<p class="note">一頁只講一件事，字放不下就多一頁，不會把字縮到看不清楚。原文沒有的數字和說法，AI 不會自己加。</p>
+
+    <div class="ways">
+      <div class="way easy">
+        <h4>簡單用法：複製貼上</h4>
+        <p class="who">什麼都不用安裝，適合第一次用</p>
+        <ol>
+          <li>打開 Claude，開一個新對話</li>
+          <li>按下面的按鈕，複製整段說明</li>
+          <li>貼進對話框送出，AI 就會開始問你問題</li>
+        </ol>
+        <button class="btn primary" type="button" data-copy="src-ig-carousel">複製給 AI 的說明</button>
+        <p class="copied" id="copied-src-ig-carousel" aria-live="polite"></p>
+        <p class="note">給 AI 一個主題或一段文字，它會先排好每一頁的字給你看，你說可以才做成圖片。</p>
+      </div>
+      <div class="way">
+        <h4>進階用法：安裝技能包</h4>
+        <p class="who">常發 IG 貼文，想每次都用同一套方法做輪播圖</p>
+        <ol>
+          <li>下載壓縮檔，點兩下解壓縮</li>
+          <li>打開裡面的「使用說明_先看這份」</li>
+          <li>照著把技能包放進 Claude 桌面版</li>
+        </ol>
+        <a class="btn ghost" href="downloads/ig-carousel.zip">下載技能包（4 KB）</a>
+        <p class="note">需要 Claude 桌面版的 Code 分頁（付費方案）。</p>
+      </div>
+    </div>
+    <div class="react" data-resource="ig-carousel" data-title="IG 輪播圖一次做好">
+      <button class="pill like" type="button" aria-pressed="false">👍 有幫助 <span class="n"></span></button>
+      <button class="pill share" type="button">↗ 分享給朋友</button>
+    </div>
+    <p class="react-msg" aria-live="polite"></p>
+    <details class="fb">
+      <summary>用起來怎麼樣？告訴我</summary>
+      <form class="fb-form" data-resource="ig-carousel">
+        <label>好用的地方<textarea name="good" rows="3" maxlength="1000" placeholder="例如：不會設計也做得出一整組看起來一致的圖"></textarea></label>
+        <label>卡住或不好用的地方<textarea name="bad" rows="3" maxlength="1000" placeholder="例如：下載按鈕按不了，或字太多擠在一起"></textarea></label>
+        <label>暱稱（可不填）<input name="name" maxlength="30"></label>
+        <button class="btn primary" type="submit">送出回饋</button>
+        <p class="note">不用留 Email，匿名也可以。你的回饋會用來改進技能包。</p>
+        <p class="fb-msg" aria-live="polite"></p>
+      </form>
+    </details>
+    <textarea class="hidden-src" id="src-ig-carousel" aria-hidden="true" tabindex="-1" readonly>請你照下面這份「IG 輪播圖一次做好」流程幫我。先問我這組輪播要講什麼。
+
+======== 流程開始 ========
+
+# IG 輪播圖一次做好
+
+輪播圖是 IG 上一次放好幾張圖、讓人往右滑的貼文。這份流程分兩段：先把每一頁的文字排好、使用者說可以，再做成圖片。文字沒定之前不做圖，省得做完整組才發現方向不對。
+
+## 最重要的規則
+
+- **只用使用者給的內容。** 原文沒有的數字、研究、見證、價格、日期，一律不補。缺資料就寫「〔待補：要放什麼〕」。
+- **一頁只講一件事。** 塞不下就多一頁，不要把字縮小。
+- **文字定了才做圖。** 使用者確認每頁文字之前，只給規劃表。
+
+## 怎麼跟使用者互動
+
+- 一次只問一個問題，給 1、2、3 編號選項，使用者回數字就好。
+- 一律用白話，不說「版型」「網格」「字重」這類設計用語。
+- 不說「好問題」「這主題很棒」這類客套話。
+
+## 流程
+
+### 第 1 步：拿到內容
+
+使用者還沒給內容，就問：「這組輪播要講什麼？可以貼一段文字、一篇筆記，或用一句話說主題。」
+
+### 第 2 步：問目的
+
+&gt; 這組輪播主要想做到什麼？
+&gt; 1. 教一個知識或方法
+&gt; 2. 分享一段經驗或心得
+&gt; 3. 公告活動、課程或新消息
+&gt; 4. 介紹產品或服務
+
+使用者說「你決定」，就依內容自己判斷。
+
+### 第 3 步：規劃每一頁
+
+照這個順序排，總共 5 到 8 頁。內容少就少做幾頁，不為了湊頁數加句子：
+
+1. **封面**：一個問題或一句主張，讓人想往右滑。主標最多兩行。
+2. **為什麼要看**：一句話說這件事跟讀者有什麼關係。
+3. **內容頁**：一頁一個重點。每頁一個小標＋最多三行說明。
+4. **重點整理**（內容頁超過三頁才需要）：最多 5 點。
+5. **最後一頁**：請讀者做一件事，例如「存起來，下次練習前看一次」「留言告訴我你卡在哪一步」。只放一個行動。
+
+用表格交給使用者：
+
+| 頁 | 這頁的任務 | 大標 | 說明文字 |
+|:--|:--|:--|:--|
+
+寫字的規則：
+
+- 大標每行 12 個字以內，最多兩行。
+- 說明文字每頁 60 個字以內。
+- 一句只講一件事。少用「不只是……更是……」「讓我們一起……」「你是否曾經……」這類套話。
+
+表格後面問：
+
+&gt; 1. 可以，開始做圖
+&gt; 2. 有幾頁要改（請告訴我第幾頁、改成什麼）
+&gt; 3. 頁數太多／太少
+
+### 第 4 步：選顏色
+
+&gt; 想要哪種感覺？
+&gt; 1. 淺色乾淨（米白底、深灰字、一個重點色）
+&gt; 2. 深色有質感（深灰底、白字、一個亮色）
+&gt; 3. 溫暖柔和（淡暖色底、深咖啡字）
+&gt; 4. 我有自己的品牌色（請告訴我色碼或顏色名稱）
+
+### 第 5 步：做圖
+
+做一個 HTML 檔，裡面每一頁都是 1080×1350 像素的圖：
+
+- 在可以顯示網頁預覽的環境（例如 Claude 的 Artifact、或能存檔的桌面版），直接做成可預覽的網頁；不能預覽的環境，就給完整 HTML，請使用者存成 `.html` 用瀏覽器打開。
+- 頁面上把每一頁縮小並排顯示，方便一次看全部。
+- 加一個「下載全部 PNG」按鈕，用 `https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js` 把每一頁存成 1080×1350 的 PNG，檔名用 `01.png`、`02.png`……。預覽用 `transform: scale()` 縮小時，下載前要先複製一份沒縮小的頁面放到畫面外，再對這份複本呼叫 `html2canvas(複本, {scale: 1, width: 1080, height: 1350})`，存完把複本移除；直接截縮小後的頁面，存出來的圖會變小。
+- 字型用 `&quot;PingFang TC&quot;, &quot;Noto Sans TC&quot;, &quot;Microsoft JhengHei&quot;, sans-serif`，不另外載入字型檔。
+
+排版規則：
+
+- 每一頁用同一套排法：字的位置、大小、顏色、頁碼位置都一樣，整組看起來才是一套。
+- 四邊至少留 90 像素空白，字和頁碼都不要貼邊。
+- 封面大標 96 到 120 像素；內容頁大標 72 到 88 像素；說明文字至少 44 像素。
+- 右下角放頁碼（例如 2／6），封面不放。
+- 字放不下時，回到第 3 步把那頁拆成兩頁，不要把字縮小。
+- 不放使用者沒給的照片或商標。需要圖案時，只用簡單的線條、色塊或數字。
+
+### 第 6 步：做完自己檢查
+
+交出圖片前，逐頁確認：
+
+1. 每一頁都是 1080×1350。
+2. 沒有字超出畫面，或被切掉。
+3. 把封面想像縮成手機上小小一格：大標還看得清楚嗎？看不清楚就把大標改短、字放大。
+4. 每頁的文字和第 3 步確認過的一字不差。
+
+### 第 7 步：附上貼文說明文字
+
+最後給一段可以直接貼到 IG 的說明文字：
+
+- 第一句講這組輪播能幫讀者什麼。
+- 中間 2 到 4 行補充，不重複圖片上的每一句。
+- 最後一句和最後一頁的行動一樣。
+- 附 3 到 5 個和主題有關的 hashtag。
+
+然後問：
+
+&gt; 1. 可以了
+&gt; 2. 某幾頁要改字
+&gt; 3. 換一種顏色
+
+## 隨時都要記得
+
+- 使用者的名字、品牌、產品名、日期、價格、網址，一個字都不能改。
+- 健康、醫療、投資類的說法，照原文寫，不自己加效果保證。
+- 全程用繁體中文。
+
+======== 流程結束 ========</textarea>
+  </article>
+
   <article class="card" id="plain-writing">
     <span class="tag">寫作</span><span class="tag">新手可用</span>
     <h3 style="margin-top:4px">讓 AI 寫的字不像 AI</h3>
