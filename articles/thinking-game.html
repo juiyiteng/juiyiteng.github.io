@@ -246,7 +246,7 @@ function api(payload){
   return fetch(API, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload)})
     .then(function(r){ return r.json(); }).then(function(j){ if(!j.ok) throw new Error('bad'); return j; });
 }
-// 瀏覽次數：只在正式網址計算；網址加 ?owner=1 開過一次的瀏覽器（丸子和 AI 自己）不計。
+// 瀏覽次數：只在正式網址計算；網址加 ?owner=1 開過一次的瀏覽器（網站主人和 AI 自己）不計。
 (function(){
   if (location.hostname !== 'juiyiteng.github.io') return;
   var q = new URLSearchParams(location.search);

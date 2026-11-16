@@ -153,6 +153,142 @@ a.post-link:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border
   <h2 id="skills">技能包</h2>
   <p class="note" style="margin:0 0 4px">整理好的 AI 工作流程。AI 會先問你問題，再一步一步幫你做完。</p>
 
+  <article class="card" id="plain-writing">
+    <span class="tag">寫作</span><span class="tag">新手可用</span>
+    <h3 style="margin-top:4px">讓 AI 寫的字不像 AI</h3>
+    <p>AI 寫的字常常很漂亮，讀起來卻很累：一句話塞太多事，或用了一堆說不出具體意思的詞。把文字貼進來，AI 會照六個固定的方法改成白話，再告訴你主要改了哪三個地方。</p>
+<p class="note">原文沒有的數字、例子、親身經驗，AI 不會自己補。缺資料的地方會標「待補」，留給你填。</p>
+
+    <div class="ways">
+      <div class="way easy">
+        <h4>簡單用法：複製貼上</h4>
+        <p class="who">什麼都不用安裝，適合第一次用</p>
+        <ol>
+          <li>打開 Claude，開一個新對話</li>
+          <li>按下面的按鈕，複製整段說明</li>
+          <li>貼進對話框送出，AI 就會開始問你問題</li>
+        </ol>
+        <button class="btn primary" type="button" data-copy="src-plain-writing">複製給 AI 的說明</button>
+        <p class="copied" id="copied-src-plain-writing" aria-live="polite"></p>
+        <p class="note">貼文、Email、活動通知、自我介紹都能用。原文沒有的內容，AI 不會自己加。</p>
+      </div>
+      <div class="way">
+        <h4>進階用法：安裝技能包</h4>
+        <p class="who">常請 AI 寫東西，想每次都直接拿到白話版本</p>
+        <ol>
+          <li>下載壓縮檔，點兩下解壓縮</li>
+          <li>打開裡面的「使用說明_先看這份」</li>
+          <li>照著把技能包放進 Claude 桌面版</li>
+        </ol>
+        <a class="btn ghost" href="downloads/plain-writing.zip">下載技能包（4 KB）</a>
+        <p class="note">需要 Claude 桌面版的 Code 分頁（付費方案）。</p>
+      </div>
+    </div>
+    <div class="react" data-resource="plain-writing" data-title="讓 AI 寫的字不像 AI">
+      <button class="pill like" type="button" aria-pressed="false">👍 有幫助 <span class="n"></span></button>
+      <button class="pill share" type="button">↗ 分享給朋友</button>
+    </div>
+    <p class="react-msg" aria-live="polite"></p>
+    <details class="fb">
+      <summary>用起來怎麼樣？告訴我</summary>
+      <form class="fb-form" data-resource="plain-writing">
+        <label>好用的地方<textarea name="good" rows="3" maxlength="1000" placeholder="例如：改完的字，讀起來比較像我自己說的話"></textarea></label>
+        <label>卡住或不好用的地方<textarea name="bad" rows="3" maxlength="1000" placeholder="例如：改得太口語，或把我的意思改掉了"></textarea></label>
+        <label>暱稱（可不填）<input name="name" maxlength="30"></label>
+        <button class="btn primary" type="submit">送出回饋</button>
+        <p class="note">不用留 Email，匿名也可以。你的回饋會用來改進技能包。</p>
+        <p class="fb-msg" aria-live="polite"></p>
+      </form>
+    </details>
+    <textarea class="hidden-src" id="src-plain-writing" aria-hidden="true" tabindex="-1" readonly>請你照下面這份「讓 AI 寫的字不像 AI」流程幫我改文字。先請我把要改的文字貼上來。
+
+======== 流程開始 ========
+
+# 讓 AI 寫的字不像 AI
+
+很多人請 AI 寫貼文、Email、通知、介紹文，拿到的字常常「看起來很漂亮，讀起來很累」。原因通常有兩個：一句話塞了太多東西，或用了一堆好聽但說不出具體意思的詞。這份流程讓 AI 照固定的方法，把文字改成讀者第一次讀就看得懂的樣子。
+
+## 最重要的規則
+
+**只能把原文已有的事情寫清楚，不能自己加。** 原文沒有的數字、例子、場景、感受、引言、「我常看到……」這類親身經驗，一律不補。真的缺資料，就在那個位置寫「〔待補：要寫什麼〕」，交給使用者填。
+
+**變短不是目標，好懂才是。** 有時候補兩三個字（例如「因為」「所以」），讀者反而讀得比較快。
+
+## 怎麼跟使用者互動
+
+- 一次只問一個問題，給 1、2、3 編號選項，使用者回數字就好。
+- 一律用白話，不講文法名詞。
+- 不說「好問題」「這段寫得很棒」這類客套話。
+
+## 流程
+
+### 第 1 步：拿到文字
+
+使用者還沒貼文字，就說：「請把要改的文字貼上來。」
+
+### 第 2 步：問一個問題
+
+只問這一題：
+
+&gt; 這段文字是給誰看的？
+&gt; 1. 朋友、家人（輕鬆一點）
+&gt; 2. 客人、讀者、粉絲（親切但清楚）
+&gt; 3. 主管、廠商、正式場合（禮貌、精簡）
+&gt; 4. 你直接幫我判斷
+
+使用者已經說了對象，就跳過這一步。
+
+### 第 3 步：用六個方法改寫
+
+逐段看，照下面六個方法改：
+
+1. **看得出誰在做什麼。** 「活動報名流程的優化」改成「我們把報名步驟變簡單了」。不要讓抽象的東西做人才會做的事，例如「這個方法陪你前進」「焦慮吞掉你的選擇」。
+2. **一句只講一件事。** 一句裡同時有原因、轉折、例子和下一步，就拆成兩三句。
+3. **該說的關係要說出來。** 因果加「因為／所以」，條件加「如果」，轉折加「但」。指的是什麼不清楚時，就把名詞再寫一次。
+4. **把一串名詞改回動作。** 看到「……的……的……」或一長串「……性、……化、……力」，問自己：到底是誰做了什麼？
+5. **用平常會講的話。** 不硬造新詞、不用四字口號、不為了押韻寫三句對仗。內容只有兩件事，就寫兩件。
+6. **一段只回答一個問題。** 先給答案，再補原因或例子。同一個好處不要在標題、內文、結尾換句話一講再講。
+
+### 常見的 AI 味寫法，看到就重寫
+
+- 「不只是……更是……」「不僅……還……」
+- 「不是……而是……」（除非真的在糾正一個常見誤會）
+- 「你是否曾經……」「你是不是也……」（原文沒有讀者真實的心聲時）
+- 「在這個快速變化的時代」「值得注意的是」「不可否認」「總而言之」
+- 「讓我們一起……」「踏上……旅程」「開啟新篇章」
+- 每段結尾都加一句像格言的總結
+
+看到這些詞，先問「它在這句到底代表什麼動作或結果」，說不出來就刪：賦能、解鎖、蛻變、重塑、顛覆、打造、全方位、深度、精準、全面升級、無縫、沉浸式、底層邏輯、找回最好的自己、看見更多可能。
+
+不要只是換成同義詞，那樣還是一樣空。
+
+### 第 4 步：交出改好的版本
+
+照這個順序回覆：
+
+1. 改好的全文（直接可以複製）。
+2. 「我主要改了這三個地方」，各用一句話說，附一個原句和新句的對照。
+3. 如果有「〔待補〕」，列出來請使用者補。
+
+### 第 5 步：問下一步
+
+&gt; 1. 這樣可以
+&gt; 2. 再口語一點
+&gt; 3. 再正式一點
+&gt; 4. 有幾句我想留原本的寫法（請告訴我哪幾句）
+
+照使用者選的再改一次，改完一樣附「改了哪裡」。
+
+## 隨時都要記得
+
+- 使用者自己的名字、專有名詞、產品名、日期、價格、網址，一個字都不能改。
+- 使用者說「這句是我的口頭禪，要留著」，就留著。
+- 不要把使用者的意思改掉。不確定原意時，問一題再改。
+- 全程用繁體中文。
+
+======== 流程結束 ========</textarea>
+  </article>
+
   <article class="card" id="plan-first">
     <span class="tag">規劃</span><span class="tag">新手可用</span>
     <h3 style="margin-top:4px">動手前先想清楚</h3>
@@ -693,7 +829,7 @@ function api(payload){
   return fetch(API, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload)})
     .then(function(r){ return r.json(); }).then(function(j){ if(!j.ok) throw new Error('bad'); return j; });
 }
-// 瀏覽次數：只在正式網址計算；網址加 ?owner=1 開過一次的瀏覽器（丸子和 AI 自己）不計。
+// 瀏覽次數：只在正式網址計算；網址加 ?owner=1 開過一次的瀏覽器（網站主人和 AI 自己）不計。
 (function(){
   if (location.hostname !== 'juiyiteng.github.io') return;
   var q = new URLSearchParams(location.search);
