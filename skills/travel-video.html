@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>旅遊影片 AI 剪輯：免費 AI 技能包｜讓你的 AI 變好用</title>
+<meta name="description" content="出去玩拍了一堆影片，回來都沒剪？跟 AI 說「我要剪旅遊影片」，它會先問你去哪裡、想剪成短片還是完整版、要什麼感覺，整理好計畫給你看，再開始剪。">
+<meta property="og:title" content="旅遊影片 AI 剪輯：免費 AI 技能包">
+<meta property="og:description" content="出去玩拍了一堆影片，回來都沒剪？跟 AI 說「我要剪旅遊影片」，它會先問你去哪裡、想剪成短片還是完整版、要什麼感覺，整理好計畫給你看，再開始剪。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="讓你的 AI 變好用">
+<meta property="og:url" content="https://juiyiteng.github.io/skills/travel-video.html">
+<meta property="og:image" content="https://juiyiteng.github.io/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://juiyiteng.github.io/skills/travel-video.html">
+<style>
+:root{
+  --bg:#FAF7F2; --card:#FFFFFF; --ink:#1F2328; --muted:#5A5F66; --line:#E6E0D6;
+  --accent:#3B4BC8; --accent-ink:#FFFFFF; --soft:#EEF0FB; --ok:#1E7A4C;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16181D; --card:#1F222A; --ink:#ECEDEF; --muted:#A7ABB3; --line:#2E323C;
+    --accent:#8C9BFF; --accent-ink:#11131A; --soft:#262B40; --ok:#5FD39A;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16181D; --card:#1F222A; --ink:#ECEDEF; --muted:#A7ABB3; --line:#2E323C;
+  --accent:#8C9BFF; --accent-ink:#11131A; --soft:#262B40; --ok:#5FD39A;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  font-size:19px;line-height:1.75}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header{padding:56px 0 28px}
+.brand{font-size:15px;font-weight:700;letter-spacing:.08em;color:var(--accent);margin:0 0 12px}
+h1{font-size:clamp(30px,6vw,42px);line-height:1.3;margin:0 0 16px;font-weight:800}
+.tagline{font-size:22px;font-weight:700;margin:-4px 0 16px}
+.lead{font-size:20px;color:var(--muted);margin:0}
+h2{font-size:26px;line-height:1.4;margin:0 0 8px}
+h3{font-size:21px;margin:28px 0 8px}
+section{padding:24px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 24px;margin:16px 0}
+.tag{display:inline-block;font-size:15px;font-weight:700;background:var(--soft);color:var(--accent);
+  border-radius:999px;padding:2px 12px;margin:0 6px 10px 0}
+.card p{margin:8px 0}
+ul{padding-left:1.2em;margin:8px 0}
+li{margin:4px 0}
+.ways{display:grid;gap:16px;margin-top:20px}
+@media (min-width:700px){.ways{grid-template-columns:1fr 1fr}}
+.way{border:2px solid var(--line);border-radius:14px;padding:20px}
+.way.easy{border-color:var(--accent)}
+.way h4{font-size:20px;margin:0 0 4px}
+.way .who{font-size:16px;color:var(--muted);margin:0 0 12px}
+ol{padding-left:1.3em;margin:8px 0}
+ol li{margin:6px 0}
+.btn{display:block;width:100%;text-align:center;font-size:19px;font-weight:700;border-radius:12px;
+  padding:14px 16px;margin-top:14px;border:2px solid var(--accent);cursor:pointer;text-decoration:none;font-family:inherit}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.copied{color:var(--ok);font-weight:700;font-size:17px;text-align:center;min-height:1.6em;margin:8px 0 0}
+.note{font-size:17px;color:var(--muted)}
+details{border-top:1px solid var(--line);padding:14px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;font-size:19px}
+details p{margin:10px 0 0}
+kbd{font-family:inherit;font-size:16px;background:var(--soft);border-radius:6px;padding:1px 7px}
+footer{padding:40px 0 56px;font-size:16px;color:var(--muted)}
+footer p{margin:4px 0}
+.consult{border:2px solid var(--accent);background:var(--soft)}
+.consult .btn{max-width:360px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:12px 0}
+.svc h4{font-size:20px;margin:0 0 4px}
+.svc p{margin:0}
+.svc.fit{border:2px dashed var(--accent)}
+.react{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.pill{font-family:inherit;font-size:17px;font-weight:700;border:2px solid var(--line);background:var(--card);color:var(--ink);
+  border-radius:999px;padding:8px 18px;cursor:pointer}
+.pill.like[aria-pressed="true"]{border-color:var(--accent);background:var(--soft);color:var(--accent)}
+.pill:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.react-msg,.fb-msg{font-size:16px;color:var(--ok);font-weight:700;min-height:1.4em;margin:6px 0 0}
+details.fb{border:none;padding:4px 0 0}
+details.fb summary{font-size:18px;color:var(--accent)}
+.fb-form label{display:block;font-size:17px;font-weight:700;margin-top:14px}
+.fb-form textarea,.fb-form input{display:block;width:100%;margin-top:6px;font-family:inherit;font-size:17px;line-height:1.6;
+  border:2px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--card);color:var(--ink)}
+.fb-form textarea:focus,.fb-form input:focus{outline:none;border-color:var(--accent)}
+.fb-form .btn{max-width:260px}
+textarea.hidden-src{position:absolute;left:-9999px;width:1px;height:1px}
+textarea.shown-src{display:block;width:100%;height:220px;margin-top:12px;font-size:16px;line-height:1.6;
+  border:2px solid var(--accent);border-radius:12px;padding:12px;background:var(--card);color:var(--ink);font-family:inherit}
+.jump{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 0}
+.jump a{font-size:17px;font-weight:700;text-decoration:none;color:var(--accent);border:2px solid var(--accent);border-radius:999px;padding:6px 16px}
+.start-card{border:2px solid var(--accent);background:var(--soft)}
+.start-card .btn{max-width:320px}
+a.post-link{display:block;text-decoration:none;color:inherit}
+a.post-link:hover h3,a.post-link:focus-visible h3{color:var(--accent)}
+a.post-link:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border-radius:18px}
+.post-link .card{padding:22px 24px}
+.post-link h3{margin:2px 0 6px;line-height:1.45}
+.post-link p{margin:0;color:var(--muted);font-size:17px}
+.post-link .date{font-size:15px;color:var(--muted);margin-left:4px}
+.top{padding:24px 0 0;font-size:17px}
+.top a{color:var(--accent);text-decoration:none;font-weight:700}
+.post-head{padding:24px 0 8px}
+.post-head h1{font-size:clamp(28px,5.5vw,38px);margin:6px 0 12px}
+.post-body h2{margin:40px 0 10px}
+.post-body h3{margin:28px 0 6px}
+.post-body p{margin:14px 0}
+.post-body blockquote{margin:20px 0;padding:14px 20px;border-left:5px solid var(--accent);background:var(--soft);border-radius:10px;font-weight:700}
+.post-body .sum{background:var(--soft);border-radius:12px;padding:16px 20px}
+.post-body pre.prompt{white-space:pre-wrap;word-break:break-word;font-family:inherit;font-size:17px;line-height:1.7;
+  background:var(--card);border:2px solid var(--line);border-radius:12px;padding:14px 16px;margin:12px 0}
+.post-body figure{margin:18px 0}
+.post-body img{display:block;max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+.post-body figcaption{font-size:16px;color:var(--muted);text-align:center;margin-top:8px}
+.post-body hr{border:none;border-top:1px solid var(--line);margin:32px 0}
+.post-body .video{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;margin:20px 0}
+.post-body .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.react-card{margin-top:40px}
+.more{display:grid;gap:4px;padding:8px 0}
+@media (min-width:700px){.more{grid-template-columns:1fr 1fr;gap:16px}}
+</style>
+</head>
+<body data-page="skill-travel-video">
+<div class="wrap">
+<nav class="top"><a href="../index.html">← 讓你的 AI 變好用</a></nav>
+<p class="note" style="margin-top:12px">免費技能包・不用安裝，複製貼上就能用</p>
+
+  <article class="card" id="travel-video">
+    <span class="tag">影片</span><span class="tag">新手可用</span>
+    <h1 style="margin-top:4px;font-size:1.6em">旅遊影片 AI 剪輯</h1>
+    <p>出去玩拍了一堆影片，回來都沒剪？跟 AI 說「我要剪旅遊影片」，它會先問你去哪裡、想剪成短片還是完整版、要什麼感覺，整理好計畫給你看，再開始剪。</p>
+<p class="note">先剪開頭 10–15 秒給你確認，對了才剪整支。你的原始影片不會被動到。</p>
+
+    <div class="ways">
+      <div class="way easy">
+        <h4>簡單用法：複製貼上</h4>
+        <p class="who">什麼都不用安裝，適合第一次用</p>
+        <ol>
+          <li>打開 Claude，開一個新對話</li>
+          <li>按下面的按鈕，複製整段說明</li>
+          <li>貼進對話框送出，AI 就會開始問你問題</li>
+        </ol>
+        <button class="btn primary" type="button" data-copy="src-travel-video">複製給 AI 的說明</button>
+        <p class="copied" id="copied-src-travel-video" aria-live="polite"></p>
+        <p class="note">這種用法 AI 會幫你規劃故事線，給你一份剪輯清單，你再照著在剪映或 CapCut 剪。</p>
+      </div>
+      <div class="way">
+        <h4>進階用法：安裝技能包</h4>
+        <p class="who">想讓 AI 直接幫你把影片剪出來</p>
+        <ol>
+          <li>下載壓縮檔，點兩下解壓縮</li>
+          <li>打開裡面的「使用說明_先看這份」</li>
+          <li>照著把技能包放進 Claude 桌面版</li>
+        </ol>
+        <a class="btn ghost" href="https://github.com/juiyiteng/juiyiteng.github.io/releases/latest/download/travel-video-ai-skill.zip">下載技能包（15 KB）</a>
+        <p class="note">需要 Claude 桌面版的 Code 分頁（付費方案）。</p>
+      </div>
+    </div>
+    <div class="react" data-resource="travel-video" data-title="旅遊影片 AI 剪輯">
+      <button class="pill like" type="button" aria-pressed="false">👍 有幫助 <span class="n"></span></button>
+      <button class="pill share" type="button">↗ 分享給朋友</button>
+    </div>
+    <p class="react-msg" aria-live="polite"></p>
+    <details class="fb">
+      <summary>用起來怎麼樣？告訴我</summary>
+      <form class="fb-form" data-resource="travel-video">
+        <label>好用的地方<textarea name="good" rows="3" maxlength="1000" placeholder="例如：AI 先問問題，我就知道要怎麼回答"></textarea></label>
+        <label>卡住或不好用的地方<textarea name="bad" rows="3" maxlength="1000" placeholder="例如：不知道怎麼把資料夾給 AI"></textarea></label>
+        <label>暱稱（可不填）<input name="name" maxlength="30"></label>
+        <button class="btn primary" type="submit">送出回饋</button>
+        <p class="note">不用留 Email，匿名也可以。你的回饋會用來改進技能包。</p>
+        <p class="fb-msg" aria-live="polite"></p>
+      </form>
+    </details>
+    <textarea class="hidden-src" id="src-travel-video" aria-hidden="true" tabindex="-1" readonly>請你照下面這份「旅遊影片 AI 剪輯」流程幫我。現在就從「第 1 輪」問題開始問我，一次只問一輪。
+
+======== 流程開始 ========
+
+# 旅遊影片 AI 剪輯
+
+這份流程給第一次請 AI 剪片的人用。使用者不需要懂剪輯術語，也不需要知道該怎麼下指令。AI 負責提問、整理需求、提出剪法，再一步一步做出影片；使用者只要回答問題、看預覽、說哪裡要改。
+
+## 一開始一定要做的事：先問問題
+
+使用者叫出這個技能時，**先不要碰任何檔案**。先用一段短短的話打招呼，說明接下來會分幾輪問問題，每輪最多 3–4 題，每題都附例子或選項，讓使用者照著回答就好。
+
+開場範例（可依情況調整語氣）：
+
+&gt; 嗨！我來幫你剪這趟旅行的影片。
+&gt; 我會先問你幾輪問題，每輪 3–4 題，你照直覺回答就好，不知道的就說「不知道」，我會幫你推薦。
+&gt; 問完之後，我會先整理一份「剪輯計畫」給你看，你點頭了我才開始剪。
+
+### 第 1 輪：這支影片是什麼
+
+1. 這趟去哪裡？玩了幾天？跟誰一起去？（例：「京都 5 天，跟老公和兩個小孩」）
+2. 影片主要給誰看？
+   - 自己和家人留念
+   - 傳給朋友、家族群組
+   - 公開發在 YouTube、IG、FB、抖音
+3. 想剪成哪一種？（不確定就選第一個，我會依素材推薦）
+   - **A. 精華短片**：30–60 秒、直式，適合 IG Reels／抖音／限動
+   - **B. 完整旅遊紀錄**：3–8 分鐘、橫式，適合 YouTube 或家庭留念
+   - **C. 兩種都要**：先剪完整版，再從裡面挑精華
+
+### 第 2 輪：素材在哪裡
+
+1. 影片放在電腦的哪個資料夾？（教使用者：在 Finder 對資料夾按右鍵 → 按住 Option →「拷貝為路徑名稱」，貼過來就好；或直接把資料夾拖進對話框）
+2. 大概有幾支、加起來多長？用什麼拍的？（手機、GoPro、空拍機、相機；不知道也沒關係，我會自己查）
+3. 有沒有**一定要放**的畫面？（例：「第三天看到富士山那段」「女兒第一次吃到冰淇淋」）
+4. 有沒有**一定要剪掉**的畫面？（例：「我在飯店沒化妝的部分」「吵架那段」）
+
+### 第 3 輪：想要的感覺
+
+1. 想要什麼氛圍？
+   - 輕快活潑（節奏快、跟著音樂切）
+   - 溫馨紀錄（保留對話和笑聲，節奏慢一點）
+   - 電影感（風景多、慢一點、調色統一）
+   - 搞笑日常（留下好笑的片段和反應）
+2. 音樂：你有想用的音樂檔嗎？
+   - 有 → 把檔案給我
+   - 沒有 → 我建議你從 YouTube 音效庫、CapCut／剪映內建音樂找無版權的曲子下載給我。**我不能直接提供或下載有版權的歌曲**；要公開發布的影片，用流行歌可能被平台靜音或下架。
+3. 畫面上要放字嗎？（可複選）
+   - 地點字卡（例：「Day 2｜嵐山」）
+   - 開頭片名（例：「2026 京都親子行」）
+   - 有人說話的地方加字幕
+   - 都不要，乾淨就好
+4. 要不要旁白？（你自己錄一段口述也可以，我幫你剪進去）
+
+### 第 4 輪：你想怎麼剪（依環境決定）
+
+先自己確認目前環境：能不能執行指令、電腦有沒有 `ffmpeg`、能不能讀到使用者給的資料夾。
+
+- **能執行指令、讀得到檔案**（例如 Claude 桌面版的 Code 分頁、Claude Code）：推薦「AI 直接剪出成片」。沒裝 ffmpeg 時，說明要安裝什麼、為什麼要裝，取得同意後再幫忙安裝（macOS 通常是 `brew install ffmpeg`）。
+- **不能執行指令**（例如一般網頁聊天）：改走「AI 規劃、你來剪」。AI 依使用者描述或上傳的少量截圖／短片，交一份詳細剪輯清單（每段用哪支檔、從幾分幾秒到幾分幾秒、放什麼字、配什麼音樂），讓使用者在剪映／CapCut／iMovie 照著做。
+
+只有一種方式可行時，直接告訴使用者會怎麼做，不用再問。
+
+### 問完之後：整理成剪輯計畫
+
+把答案整理成一份 `剪輯計畫.md`，存在素材資料夾旁邊的工作資料夾，內容包括：
+
+- 旅行摘要（地點、天數、人物）
+- 成品：哪一種、長度、直式或橫式、發在哪裡
+- 一定要放／一定要剪掉的畫面
+- 氛圍、音樂、文字、旁白
+- 剪輯方式（AI 直接剪／AI 規劃使用者剪）
+- 還不確定、需要 AI 看完素材再推薦的項目
+
+在對話裡用 5–8 行講重點，請使用者確認或修改。使用者說「可以」之後，後面的步驟就照計畫做，不用每個小地方都再問一次。
+
+**問問題的規則：**
+
+- 每輪最多 3–4 題，一次只送一輪，等使用者回答再問下一輪。
+- 每題都給例子或選項，並標出推薦選項。
+- 使用者回答「不知道」「你決定」時，直接選一個合理預設，說明理由，繼續往下走。
+- 使用者一開始就把需求講得很清楚時，跳過已回答的題目，只問缺的部分。
+
+## 剪輯流程
+
+### Step 1｜素材盤點（不動原始檔）
+
+1. 建立工作資料夾，例如 `素材資料夾旁/旅遊剪輯工作區/`。所有截圖、預覽、成片都放這裡。
+2. **原始影片只讀不改**：不移動、不改名、不刪除、不覆寫。
+3. 用 `ffprobe` 讀每支檔案的資訊：時長、直式／橫式、解析度、幀率、有沒有聲音、拍攝時間、是不是 HDR。
+4. 每支影片抽幾張代表畫面（用 `-ss` 跳到時間點只抽一張，不要解碼整支），做成縮圖總表，用來看內容。
+5. 依拍攝時間排序，分成「第幾天／哪個地點」。
+
+回報給使用者（簡短）：
+
+- 共幾支、總長多少、直式幾支、橫式幾支
+- 依天數／地點分組的內容摘要
+- 發現的問題：晃很嚴重、太暗、手指擋到、聲音很吵、重複拍很多次的片段
+- 對成品的建議（例如：「直式素材佔 80%，建議精華短片用直式」）
+
+### Step 2｜故事線提案
+
+旅遊影片最常見的問題是「照順序全部接起來，很長又沒重點」。先提一條故事線，讓使用者看懂影片會怎麼走：
+
+| 段落 | 內容 | 用哪些素材 | 長度 |
+| --- | --- | --- | --- |
+| 開場 | 最美或最有趣的 3–5 秒，先抓住注意力 | 例：富士山空拍 | 5 秒 |
+| 出發 | 機場、車上、行李 | … | 10 秒 |
+| Day 1 | … | … | … |
+| 結尾 | 回程、合照、一句話收尾 | … | 8 秒 |
+
+常用的故事線：
+
+- **依時間走**：出發 → 每天 → 回家。最好懂，適合家庭紀錄。
+- **依主題走**：吃的、玩的、住的、風景。適合精華短片。
+- **一個人物的視角**：例如「孩子第一次出國」。適合溫馨紀錄。
+
+給一個推薦，說明理由；使用者想換再換。
+
+### Step 3｜先做開場樣段（10–15 秒）
+
+在剪整支之前，先做開場 10–15 秒的樣段，讓使用者確認：
+
+- 節奏快慢對不對
+- 音樂對不對
+- 顏色感覺對不對
+- 字卡的字型、大小、位置看不看得清楚
+
+使用者說「對，就這種感覺」再剪整支。這一步可以避免整支剪完才發現方向不對、全部重來。
+
+### Step 4｜完整預覽
+
+用較低畫質（例如 720p）先輸出整支預覽，速度快、檔案小。交給使用者時附上：
+
+- 檔案位置
+- 影片長度
+- 段落時間表（幾分幾秒是哪一段），方便使用者指出哪裡要改
+
+### Step 5｜修改
+
+教使用者這樣給回饋，越具體越快改好：
+
+&gt; 「1:20 那段海邊太長，剪短一點」
+&gt; 「0:45 換成女兒在跑的那支」
+&gt; 「音樂太大聲，蓋過大家講話」
+&gt; 「Day 3 的字卡打錯，是『奈良』」
+
+每次只重做被改到的部分，不從頭重剪。改完附上「這次改了什麼」的清單。
+
+### Step 6｜正式輸出與檢查
+
+使用者確認預覽後，才從**原始檔**重新輸出正式版（不要把預覽檔放大當正式版）。輸出後檢查：
+
+- 整支能完整播放，沒有黑畫面或卡住
+- 聲音和畫面對得上，音量前後一致
+- 直式／橫式和平台相符
+- 開頭和結尾完整，沒有剪到一半的句子
+- 字卡、字幕沒有錯字、沒有出現方框缺字
+- 有字幕的話，另外交一份 `.srt`
+
+最後回報：成片位置、長度、檔案大小，以及還沒處理的事情（例如「音樂是暫用的，公開前請換成無版權曲」）。
+
+## 旅遊影片的剪輯原則
+
+### 剪什麼、留什麼
+
+- 開場放最好看的畫面，不要從「打開鏡頭還沒對焦」開始。
+- 精華短片每個鏡頭約 1.5–3 秒；完整紀錄風景約 3–6 秒，有人在講話或互動的片段保留完整。
+- 剪掉：嚴重晃動、手指擋鏡、對焦失敗、鏡頭朝地上、同一個畫面重複拍好幾次（只留最好的一次）。
+- 保留有情緒的現場聲音：笑聲、驚呼、海浪、街頭聲音。音樂在這些地方自動調小。
+- 一句話要講完才切，不在句子中間斷掉。
+- 使用者說要剪掉的畫面，一律不放；不確定的畫面先列出來問。
+
+### 畫面處理
+
+- **直式、橫式混在一起**：依成品方向選素材。直式成品優先用直式素材；橫式素材要放進直式影片時，裁切出主體，不要加上下黑邊或模糊背景（除非使用者喜歡這種樣子）。
+- **iPhone 的 HDR 影片**：直接剪常會顏色變淡或過亮，輸出前先轉成一般色彩（SDR）。
+- **手機影片幀率不固定**：統一成 30fps，避免畫面卡頓或聲音漸漸對不上。
+- **調色**：只做輕度統一（亮度、對比、色溫），讓不同天、不同手機拍的畫面看起來像同一支影片；不要套很重的濾鏡。
+- **不做假畫面**：不用 AI 生成沒拍到的風景或人物，不加使用者沒去過的地方。
+
+### 文字
+
+- 字要大到手機上看得清楚；放在畫面中下方，避開 IG／抖音底部和右側的按鈕區。
+- 一張字卡只講一件事（地點或日期），停留至少 1.5 秒。
+- 中文字型先確認每個字都顯示得出來，有缺字或方框就換字型。
+
+## 隱私與公開前提醒
+
+影片要公開發布（YouTube、IG、FB、抖音）時，交件前主動提醒：
+
+- 影片裡有朋友、親戚、別人家小孩：公開前先問過對方。
+- 看得清楚的路人臉、車牌、住家門牌、飯店房號、機票或護照：建議剪掉或打馬賽克。
+- 自己家小孩：提醒使用者考慮是否露臉、是否顯示學校或住家位置。
+
+只給家人看的影片不需要特別處理，但仍可以提醒一句。
+
+## 電腦安全（AI 直接剪片時）
+
+家用電腦的記憶體有限，影片處理很吃資源。執行時遵守：
+
+1. **一次只跑一個 ffmpeg**，上一個跑完才開下一個；不要同時平行處理多支。
+2. 讀檔案資訊只用 `ffprobe`，不要為了看長度把整支影片解碼一遍。
+3. 抽縮圖用 `-ss` 放在 `-i` 前面跳到時間點，一次抽一張。
+4. 先做短樣段，確認沒問題再跑整支；輸出時加 `-threads 2` 降低負擔。
+5. 電腦變很慢或記憶體不足時，停下來、縮小範圍（降解析度、分段處理），不要原樣重跑。
+6. 工作空間的檔案很大時，交件後提醒使用者哪些預覽檔可以丟到垃圾桶；原始檔永遠不刪。
+
+## 交付狀態要講清楚
+
+- **剪輯計畫**：還沒開始剪
+- **樣段**：只有開頭 10–15 秒，確認風格用
+- **預覽**：整支，但畫質較低，等確認
+- **正式版**：使用者確認後，從原始檔輸出的最終成片
+
+不要把預覽說成正式版。AI 不會自己把影片上傳或發布到任何平台；使用者要自己上傳，或另外明確交代。
+
+======== 流程結束 ========</textarea>
+  </article>
+
+<div class="card">
+  <p style="font-weight:700;margin:0 0 6px">其他技能包</p>
+  <ul><li><a style="color:var(--accent)" href="short-video-script.html">短影片腳本一次寫好</a></li><li><a style="color:var(--accent)" href="ig-carousel.html">IG 輪播圖一次做好</a></li><li><a style="color:var(--accent)" href="plain-writing.html">讓 AI 寫的字不像 AI</a></li><li><a style="color:var(--accent)" href="plan-first.html">動手前先想清楚</a></li></ul>
+  <p class="note">第一次用 AI？先看 <a style="color:var(--accent)" href="../articles/start.html">新手第一步</a>。</p>
+</div>
+
+<footer>
+  <p>網站設計：Joyce T｜<a href="https://www.facebook.com/joyce.t.996425" target="_blank" rel="noopener" style="color:var(--accent)">Facebook</a></p>
+  <p><a href="https://www.facebook.com/profile.php?id=61596840290249" target="_blank" rel="noopener" style="color:var(--accent)">追蹤 FB 粉專「讓你的 AI 變好用」</a>，每週分享新手用得上的 AI 小方法</p>
+  <p>讓你的 AI 變好用・帶你一步步用好 AI</p>
+</footer>
+</div>
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var id = btn.getAttribute('data-copy');
+    var src = document.getElementById(id);
+    var msg = document.getElementById('copied-' + id);
+    var text = src.value;
+    function done(ok){
+      if (ok) { msg.textContent = '已複製！打開 Claude 貼上送出就好'; return; }
+      msg.textContent = '自動複製沒成功，請把下面整段文字全選、複製';
+      src.className = 'shown-src'; src.removeAttribute('aria-hidden'); src.removeAttribute('tabindex');
+      src.focus(); src.select();
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function(){done(true)}, function(){fallback()});
+    } else { fallback(); }
+    function fallback(){
+      try { src.style.position='fixed'; src.style.left='0'; src.select(); var ok=document.execCommand('copy');
+        src.style.position=''; src.style.left=''; done(ok);} catch(e){ done(false); }
+    }
+  });
+});
+
+var API = "https://script.google.com/macros/s/AKfycbwMLUq48ZNEPlzWWwNbAV92mQNIG6Xg6tk-CS7udGBWaS5xW2L2_0vTMK5hBzTzhuG1/exec";
+function store(k, v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k, v);}catch(e){ return null; } }
+function api(payload){
+  if(!API) return Promise.reject(new Error('no-api'));
+  return fetch(API, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload)})
+    .then(function(r){ return r.json(); }).then(function(j){ if(!j.ok) throw new Error('bad'); return j; });
+}
+// 瀏覽次數：只在正式網址計算；網址加 ?owner=1 開過一次的瀏覽器（網站主人和 AI 自己）不計。
+(function(){
+  if (location.hostname !== 'juiyiteng.github.io') return;
+  var q = new URLSearchParams(location.search);
+  if (q.get('owner') === '1') { store('aiSiteOwner', '1'); return; }
+  if (store('aiSiteOwner')) return;
+  var src = (q.get('utm_source') || '').toLowerCase().replace(/[^a-z0-9.-]/g, '').slice(0, 30);
+  if (!src) {
+    var h = ''; try { h = new URL(document.referrer).hostname; } catch(e) {}
+    src = !h || h === location.hostname ? 'direct'
+      : /facebook|fb\.|messenger/.test(h) ? 'facebook'
+      : /instagram/.test(h) ? 'instagram'
+      : /threads/.test(h) ? 'threads'
+      : /google/.test(h) ? 'google'
+      : /line\.me|line\.naver/.test(h) ? 'line'
+      : /bing|yahoo|duckduckgo/.test(h) ? 'search'
+      : h.replace(/^www\./, '').slice(0, 30);
+  }
+  var post = document.querySelector('article.post');
+  var page = post && post.id ? post.id : (document.body.dataset.page || 'home');
+  api({type:'view', resource: page, source: src}).catch(function(){});
+})();
+function loadStats(){
+  if(!API) return;
+  fetch(API).then(function(r){ return r.json(); }).then(function(s){
+    document.querySelectorAll('.react').forEach(function(box){
+      var st = s[box.dataset.resource]; var n = box.querySelector('.n');
+      if(st && st.likes) n.textContent = st.likes;
+    });
+  }).catch(function(){});
+}
+document.querySelectorAll('.react').forEach(function(box){
+  var res = box.dataset.resource, like = box.querySelector('.like'), msg = box.nextElementSibling;
+  if(store('liked:'+res)) like.setAttribute('aria-pressed','true');
+  like.addEventListener('click', function(){
+    if(like.getAttribute('aria-pressed')==='true'){ msg.textContent='你已經按過讚了，謝謝！'; return; }
+    like.setAttribute('aria-pressed','true'); store('liked:'+res,'1');
+    var n = like.querySelector('.n'); n.textContent = (parseInt(n.textContent||'0',10)+1);
+    msg.textContent = '謝謝你的讚！';
+    api({type:'like', resource: res}).catch(function(){});
+  });
+  box.querySelector('.share').addEventListener('click', function(){
+    // 技能包分享它自己的網頁；網址帶 utm_source=share，才看得出分享帶來多少人。按一次分享也記一筆（share-資源名）。
+    var a = box.closest('article');
+    var url = a && a.id && !a.classList.contains('post') ? location.origin + '/skills/' + a.id + '.html' : location.origin + location.pathname;
+    url += '?utm_source=share';
+    if (location.hostname === 'juiyiteng.github.io' && !store('aiSiteOwner')) api({type:'view', resource:'share-' + res, source:'click'}).catch(function(){});
+    var title = box.dataset.title + '｜讓你的 AI 變好用';
+    if(navigator.share){ navigator.share({title:title, url:url}).catch(function(){}); return; }
+    var fbUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+    var done = function(){ msg.innerHTML = '連結已複製，可以貼給朋友。也可以 <a href="'+fbUrl+'" target="_blank" rel="noopener">分享到 Facebook</a>'; };
+    if(navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(url).then(done, done); } else { done(); }
+  });
+});
+document.querySelectorAll('.fb-form').forEach(function(f){
+  var out = f.querySelector('.fb-msg');
+  f.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var good = f.good.value.trim(), bad = f.bad.value.trim();
+    if(!good && !bad){ out.style.color='var(--muted)'; out.textContent='至少填一格再送出喔'; return; }
+    var btn = f.querySelector('button[type=submit]'); btn.disabled = true; out.style.color=''; out.textContent='送出中…';
+    api({type:'feedback', resource:f.dataset.resource, good:good, bad:bad, name:f.name.value.trim()})
+      .then(function(){ f.reset(); out.textContent='收到了，謝謝你！'; })
+      .catch(function(){ out.style.color='var(--muted)'; out.textContent='送出失敗，請稍後再試一次'; })
+      .finally(function(){ btn.disabled = false; });
+  });
+});
+loadStats();
+</script>
+</body>
+</html>

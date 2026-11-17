@@ -265,7 +265,7 @@ function api(payload){
       : h.replace(/^www\./, '').slice(0, 30);
   }
   var post = document.querySelector('article.post');
-  var page = post && post.id ? post.id : 'home';
+  var page = post && post.id ? post.id : (document.body.dataset.page || 'home');
   api({type:'view', resource: page, source: src}).catch(function(){});
 })();
 function loadStats(){
@@ -288,7 +288,11 @@ document.querySelectorAll('.react').forEach(function(box){
     api({type:'like', resource: res}).catch(function(){});
   });
   box.querySelector('.share').addEventListener('click', function(){
-    var a = box.closest('article'); var url = location.origin + location.pathname + (a && a.id && !a.classList.contains('post') ? '#' + a.id : '');
+    // 技能包分享它自己的網頁；網址帶 utm_source=share，才看得出分享帶來多少人。按一次分享也記一筆（share-資源名）。
+    var a = box.closest('article');
+    var url = a && a.id && !a.classList.contains('post') ? location.origin + '/skills/' + a.id + '.html' : location.origin + location.pathname;
+    url += '?utm_source=share';
+    if (location.hostname === 'juiyiteng.github.io' && !store('aiSiteOwner')) api({type:'view', resource:'share-' + res, source:'click'}).catch(function(){});
     var title = box.dataset.title + '｜讓你的 AI 變好用';
     if(navigator.share){ navigator.share({title:title, url:url}).catch(function(){}); return; }
     var fbUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);

@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>讓 AI 寫的字不像 AI：免費 AI 技能包｜讓你的 AI 變好用</title>
+<meta name="description" content="AI 寫的字常常很漂亮，讀起來卻很累：一句話塞太多事，或用了一堆說不出具體意思的詞。把文字貼進來，AI 會照六個固定的方法改成白話，再告訴你主要改了哪三個地方。">
+<meta property="og:title" content="讓 AI 寫的字不像 AI：免費 AI 技能包">
+<meta property="og:description" content="AI 寫的字常常很漂亮，讀起來卻很累：一句話塞太多事，或用了一堆說不出具體意思的詞。把文字貼進來，AI 會照六個固定的方法改成白話，再告訴你主要改了哪三個地方。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="讓你的 AI 變好用">
+<meta property="og:url" content="https://juiyiteng.github.io/skills/plain-writing.html">
+<meta property="og:image" content="https://juiyiteng.github.io/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://juiyiteng.github.io/skills/plain-writing.html">
+<style>
+:root{
+  --bg:#FAF7F2; --card:#FFFFFF; --ink:#1F2328; --muted:#5A5F66; --line:#E6E0D6;
+  --accent:#3B4BC8; --accent-ink:#FFFFFF; --soft:#EEF0FB; --ok:#1E7A4C;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16181D; --card:#1F222A; --ink:#ECEDEF; --muted:#A7ABB3; --line:#2E323C;
+    --accent:#8C9BFF; --accent-ink:#11131A; --soft:#262B40; --ok:#5FD39A;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16181D; --card:#1F222A; --ink:#ECEDEF; --muted:#A7ABB3; --line:#2E323C;
+  --accent:#8C9BFF; --accent-ink:#11131A; --soft:#262B40; --ok:#5FD39A;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  font-size:19px;line-height:1.75}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header{padding:56px 0 28px}
+.brand{font-size:15px;font-weight:700;letter-spacing:.08em;color:var(--accent);margin:0 0 12px}
+h1{font-size:clamp(30px,6vw,42px);line-height:1.3;margin:0 0 16px;font-weight:800}
+.tagline{font-size:22px;font-weight:700;margin:-4px 0 16px}
+.lead{font-size:20px;color:var(--muted);margin:0}
+h2{font-size:26px;line-height:1.4;margin:0 0 8px}
+h3{font-size:21px;margin:28px 0 8px}
+section{padding:24px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 24px;margin:16px 0}
+.tag{display:inline-block;font-size:15px;font-weight:700;background:var(--soft);color:var(--accent);
+  border-radius:999px;padding:2px 12px;margin:0 6px 10px 0}
+.card p{margin:8px 0}
+ul{padding-left:1.2em;margin:8px 0}
+li{margin:4px 0}
+.ways{display:grid;gap:16px;margin-top:20px}
+@media (min-width:700px){.ways{grid-template-columns:1fr 1fr}}
+.way{border:2px solid var(--line);border-radius:14px;padding:20px}
+.way.easy{border-color:var(--accent)}
+.way h4{font-size:20px;margin:0 0 4px}
+.way .who{font-size:16px;color:var(--muted);margin:0 0 12px}
+ol{padding-left:1.3em;margin:8px 0}
+ol li{margin:6px 0}
+.btn{display:block;width:100%;text-align:center;font-size:19px;font-weight:700;border-radius:12px;
+  padding:14px 16px;margin-top:14px;border:2px solid var(--accent);cursor:pointer;text-decoration:none;font-family:inherit}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.copied{color:var(--ok);font-weight:700;font-size:17px;text-align:center;min-height:1.6em;margin:8px 0 0}
+.note{font-size:17px;color:var(--muted)}
+details{border-top:1px solid var(--line);padding:14px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;font-size:19px}
+details p{margin:10px 0 0}
+kbd{font-family:inherit;font-size:16px;background:var(--soft);border-radius:6px;padding:1px 7px}
+footer{padding:40px 0 56px;font-size:16px;color:var(--muted)}
+footer p{margin:4px 0}
+.consult{border:2px solid var(--accent);background:var(--soft)}
+.consult .btn{max-width:360px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:12px 0}
+.svc h4{font-size:20px;margin:0 0 4px}
+.svc p{margin:0}
+.svc.fit{border:2px dashed var(--accent)}
+.react{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.pill{font-family:inherit;font-size:17px;font-weight:700;border:2px solid var(--line);background:var(--card);color:var(--ink);
+  border-radius:999px;padding:8px 18px;cursor:pointer}
+.pill.like[aria-pressed="true"]{border-color:var(--accent);background:var(--soft);color:var(--accent)}
+.pill:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.react-msg,.fb-msg{font-size:16px;color:var(--ok);font-weight:700;min-height:1.4em;margin:6px 0 0}
+details.fb{border:none;padding:4px 0 0}
+details.fb summary{font-size:18px;color:var(--accent)}
+.fb-form label{display:block;font-size:17px;font-weight:700;margin-top:14px}
+.fb-form textarea,.fb-form input{display:block;width:100%;margin-top:6px;font-family:inherit;font-size:17px;line-height:1.6;
+  border:2px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--card);color:var(--ink)}
+.fb-form textarea:focus,.fb-form input:focus{outline:none;border-color:var(--accent)}
+.fb-form .btn{max-width:260px}
+textarea.hidden-src{position:absolute;left:-9999px;width:1px;height:1px}
+textarea.shown-src{display:block;width:100%;height:220px;margin-top:12px;font-size:16px;line-height:1.6;
+  border:2px solid var(--accent);border-radius:12px;padding:12px;background:var(--card);color:var(--ink);font-family:inherit}
+.jump{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 0}
+.jump a{font-size:17px;font-weight:700;text-decoration:none;color:var(--accent);border:2px solid var(--accent);border-radius:999px;padding:6px 16px}
+.start-card{border:2px solid var(--accent);background:var(--soft)}
+.start-card .btn{max-width:320px}
+a.post-link{display:block;text-decoration:none;color:inherit}
+a.post-link:hover h3,a.post-link:focus-visible h3{color:var(--accent)}
+a.post-link:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border-radius:18px}
+.post-link .card{padding:22px 24px}
+.post-link h3{margin:2px 0 6px;line-height:1.45}
+.post-link p{margin:0;color:var(--muted);font-size:17px}
+.post-link .date{font-size:15px;color:var(--muted);margin-left:4px}
+.top{padding:24px 0 0;font-size:17px}
+.top a{color:var(--accent);text-decoration:none;font-weight:700}
+.post-head{padding:24px 0 8px}
+.post-head h1{font-size:clamp(28px,5.5vw,38px);margin:6px 0 12px}
+.post-body h2{margin:40px 0 10px}
+.post-body h3{margin:28px 0 6px}
+.post-body p{margin:14px 0}
+.post-body blockquote{margin:20px 0;padding:14px 20px;border-left:5px solid var(--accent);background:var(--soft);border-radius:10px;font-weight:700}
+.post-body .sum{background:var(--soft);border-radius:12px;padding:16px 20px}
+.post-body pre.prompt{white-space:pre-wrap;word-break:break-word;font-family:inherit;font-size:17px;line-height:1.7;
+  background:var(--card);border:2px solid var(--line);border-radius:12px;padding:14px 16px;margin:12px 0}
+.post-body figure{margin:18px 0}
+.post-body img{display:block;max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+.post-body figcaption{font-size:16px;color:var(--muted);text-align:center;margin-top:8px}
+.post-body hr{border:none;border-top:1px solid var(--line);margin:32px 0}
+.post-body .video{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;margin:20px 0}
+.post-body .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.react-card{margin-top:40px}
+.more{display:grid;gap:4px;padding:8px 0}
+@media (min-width:700px){.more{grid-template-columns:1fr 1fr;gap:16px}}
+</style>
+</head>
+<body data-page="skill-plain-writing">
+<div class="wrap">
+<nav class="top"><a href="../index.html">← 讓你的 AI 變好用</a></nav>
+<p class="note" style="margin-top:12px">免費技能包・不用安裝，複製貼上就能用</p>
+
+  <article class="card" id="plain-writing">
+    <span class="tag">寫作</span><span class="tag">新手可用</span>
+    <h1 style="margin-top:4px;font-size:1.6em">讓 AI 寫的字不像 AI</h1>
+    <p>AI 寫的字常常很漂亮，讀起來卻很累：一句話塞太多事，或用了一堆說不出具體意思的詞。把文字貼進來，AI 會照六個固定的方法改成白話，再告訴你主要改了哪三個地方。</p>
+<p class="note">原文沒有的數字、例子、親身經驗，AI 不會自己補。缺資料的地方會標「待補」，留給你填。</p>
+
+    <div class="ways">
+      <div class="way easy">
+        <h4>簡單用法：複製貼上</h4>
+        <p class="who">什麼都不用安裝，適合第一次用</p>
+        <ol>
+          <li>打開 Claude，開一個新對話</li>
+          <li>按下面的按鈕，複製整段說明</li>
+          <li>貼進對話框送出，AI 就會開始問你問題</li>
+        </ol>
+        <button class="btn primary" type="button" data-copy="src-plain-writing">複製給 AI 的說明</button>
+        <p class="copied" id="copied-src-plain-writing" aria-live="polite"></p>
+        <p class="note">貼文、Email、活動通知、自我介紹都能用。原文沒有的內容，AI 不會自己加。</p>
+      </div>
+      <div class="way">
+        <h4>進階用法：安裝技能包</h4>
+        <p class="who">常請 AI 寫東西，想每次都直接拿到白話版本</p>
+        <ol>
+          <li>下載壓縮檔，點兩下解壓縮</li>
+          <li>打開裡面的「使用說明_先看這份」</li>
+          <li>照著把技能包放進 Claude 桌面版</li>
+        </ol>
+        <a class="btn ghost" href="../downloads/plain-writing.zip">下載技能包（4 KB）</a>
+        <p class="note">需要 Claude 桌面版的 Code 分頁（付費方案）。</p>
+      </div>
+    </div>
+    <div class="react" data-resource="plain-writing" data-title="讓 AI 寫的字不像 AI">
+      <button class="pill like" type="button" aria-pressed="false">👍 有幫助 <span class="n"></span></button>
+      <button class="pill share" type="button">↗ 分享給朋友</button>
+    </div>
+    <p class="react-msg" aria-live="polite"></p>
+    <details class="fb">
+      <summary>用起來怎麼樣？告訴我</summary>
+      <form class="fb-form" data-resource="plain-writing">
+        <label>好用的地方<textarea name="good" rows="3" maxlength="1000" placeholder="例如：改完的字，讀起來比較像我自己說的話"></textarea></label>
+        <label>卡住或不好用的地方<textarea name="bad" rows="3" maxlength="1000" placeholder="例如：改得太口語，或把我的意思改掉了"></textarea></label>
+        <label>暱稱（可不填）<input name="name" maxlength="30"></label>
+        <button class="btn primary" type="submit">送出回饋</button>
+        <p class="note">不用留 Email，匿名也可以。你的回饋會用來改進技能包。</p>
+        <p class="fb-msg" aria-live="polite"></p>
+      </form>
+    </details>
+    <textarea class="hidden-src" id="src-plain-writing" aria-hidden="true" tabindex="-1" readonly>請你照下面這份「讓 AI 寫的字不像 AI」流程幫我改文字。先請我把要改的文字貼上來。
+
+======== 流程開始 ========
+
+# 讓 AI 寫的字不像 AI
+
+很多人請 AI 寫貼文、Email、通知、介紹文，拿到的字常常「看起來很漂亮，讀起來很累」。原因通常有兩個：一句話塞了太多東西，或用了一堆好聽但說不出具體意思的詞。這份流程讓 AI 照固定的方法，把文字改成讀者第一次讀就看得懂的樣子。
+
+## 最重要的規則
+
+**只能把原文已有的事情寫清楚，不能自己加。** 原文沒有的數字、例子、場景、感受、引言、「我常看到……」這類親身經驗，一律不補。真的缺資料，就在那個位置寫「〔待補：要寫什麼〕」，交給使用者填。
+
+**變短不是目標，好懂才是。** 有時候補兩三個字（例如「因為」「所以」），讀者反而讀得比較快。
+
+## 怎麼跟使用者互動
+
+- 一次只問一個問題，給 1、2、3 編號選項，使用者回數字就好。
+- 一律用白話，不講文法名詞。
+- 不說「好問題」「這段寫得很棒」這類客套話。
+
+## 流程
+
+### 第 1 步：拿到文字
+
+使用者還沒貼文字，就說：「請把要改的文字貼上來。」
+
+### 第 2 步：問一個問題
+
+只問這一題：
+
+&gt; 這段文字是給誰看的？
+&gt; 1. 朋友、家人（輕鬆一點）
+&gt; 2. 客人、讀者、粉絲（親切但清楚）
+&gt; 3. 主管、廠商、正式場合（禮貌、精簡）
+&gt; 4. 你直接幫我判斷
+
+使用者已經說了對象，就跳過這一步。
+
+### 第 3 步：用六個方法改寫
+
+逐段看，照下面六個方法改：
+
+1. **看得出誰在做什麼。** 「活動報名流程的優化」改成「我們把報名步驟變簡單了」。不要讓抽象的東西做人才會做的事，例如「這個方法陪你前進」「焦慮吞掉你的選擇」。
+2. **一句只講一件事。** 一句裡同時有原因、轉折、例子和下一步，就拆成兩三句。
+3. **該說的關係要說出來。** 因果加「因為／所以」，條件加「如果」，轉折加「但」。指的是什麼不清楚時，就把名詞再寫一次。
+4. **把一串名詞改回動作。** 看到「……的……的……」或一長串「……性、……化、……力」，問自己：到底是誰做了什麼？
+5. **用平常會講的話。** 不硬造新詞、不用四字口號、不為了押韻寫三句對仗。內容只有兩件事，就寫兩件。
+6. **一段只回答一個問題。** 先給答案，再補原因或例子。同一個好處不要在標題、內文、結尾換句話一講再講。
+
+### 常見的 AI 味寫法，看到就重寫
+
+- 「不只是……更是……」「不僅……還……」
+- 「不是……而是……」（除非真的在糾正一個常見誤會）
+- 「你是否曾經……」「你是不是也……」（原文沒有讀者真實的心聲時）
+- 「在這個快速變化的時代」「值得注意的是」「不可否認」「總而言之」
+- 「讓我們一起……」「踏上……旅程」「開啟新篇章」
+- 每段結尾都加一句像格言的總結
+
+看到這些詞，先問「它在這句到底代表什麼動作或結果」，說不出來就刪：賦能、解鎖、蛻變、重塑、顛覆、打造、全方位、深度、精準、全面升級、無縫、沉浸式、底層邏輯、找回最好的自己、看見更多可能。
+
+不要只是換成同義詞，那樣還是一樣空。
+
+### 第 4 步：交出改好的版本
+
+照這個順序回覆：
+
+1. 改好的全文（直接可以複製）。
+2. 「我主要改了這三個地方」，各用一句話說，附一個原句和新句的對照。
+3. 如果有「〔待補〕」，列出來請使用者補。
+
+### 第 5 步：問下一步
+
+&gt; 1. 這樣可以
+&gt; 2. 再口語一點
+&gt; 3. 再正式一點
+&gt; 4. 有幾句我想留原本的寫法（請告訴我哪幾句）
+
+照使用者選的再改一次，改完一樣附「改了哪裡」。
+
+## 隨時都要記得
+
+- 使用者自己的名字、專有名詞、產品名、日期、價格、網址，一個字都不能改。
+- 使用者說「這句是我的口頭禪，要留著」，就留著。
+- 不要把使用者的意思改掉。不確定原意時，問一題再改。
+- 全程用繁體中文。
+
+======== 流程結束 ========</textarea>
+  </article>
+
+<div class="card">
+  <p style="font-weight:700;margin:0 0 6px">其他技能包</p>
+  <ul><li><a style="color:var(--accent)" href="short-video-script.html">短影片腳本一次寫好</a></li><li><a style="color:var(--accent)" href="ig-carousel.html">IG 輪播圖一次做好</a></li><li><a style="color:var(--accent)" href="plan-first.html">動手前先想清楚</a></li><li><a style="color:var(--accent)" href="travel-video.html">旅遊影片 AI 剪輯</a></li></ul>
+  <p class="note">第一次用 AI？先看 <a style="color:var(--accent)" href="../articles/start.html">新手第一步</a>。</p>
+</div>
+
+<footer>
+  <p>網站設計：Joyce T｜<a href="https://www.facebook.com/joyce.t.996425" target="_blank" rel="noopener" style="color:var(--accent)">Facebook</a></p>
+  <p><a href="https://www.facebook.com/profile.php?id=61596840290249" target="_blank" rel="noopener" style="color:var(--accent)">追蹤 FB 粉專「讓你的 AI 變好用」</a>，每週分享新手用得上的 AI 小方法</p>
+  <p>讓你的 AI 變好用・帶你一步步用好 AI</p>
+</footer>
+</div>
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var id = btn.getAttribute('data-copy');
+    var src = document.getElementById(id);
+    var msg = document.getElementById('copied-' + id);
+    var text = src.value;
+    function done(ok){
+      if (ok) { msg.textContent = '已複製！打開 Claude 貼上送出就好'; return; }
+      msg.textContent = '自動複製沒成功，請把下面整段文字全選、複製';
+      src.className = 'shown-src'; src.removeAttribute('aria-hidden'); src.removeAttribute('tabindex');
+      src.focus(); src.select();
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function(){done(true)}, function(){fallback()});
+    } else { fallback(); }
+    function fallback(){
+      try { src.style.position='fixed'; src.style.left='0'; src.select(); var ok=document.execCommand('copy');
+        src.style.position=''; src.style.left=''; done(ok);} catch(e){ done(false); }
+    }
+  });
+});
+
+var API = "https://script.google.com/macros/s/AKfycbwMLUq48ZNEPlzWWwNbAV92mQNIG6Xg6tk-CS7udGBWaS5xW2L2_0vTMK5hBzTzhuG1/exec";
+function store(k, v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k, v);}catch(e){ return null; } }
+function api(payload){
+  if(!API) return Promise.reject(new Error('no-api'));
+  return fetch(API, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload)})
+    .then(function(r){ return r.json(); }).then(function(j){ if(!j.ok) throw new Error('bad'); return j; });
+}
+// 瀏覽次數：只在正式網址計算；網址加 ?owner=1 開過一次的瀏覽器（網站主人和 AI 自己）不計。
+(function(){
+  if (location.hostname !== 'juiyiteng.github.io') return;
+  var q = new URLSearchParams(location.search);
+  if (q.get('owner') === '1') { store('aiSiteOwner', '1'); return; }
+  if (store('aiSiteOwner')) return;
+  var src = (q.get('utm_source') || '').toLowerCase().replace(/[^a-z0-9.-]/g, '').slice(0, 30);
+  if (!src) {
+    var h = ''; try { h = new URL(document.referrer).hostname; } catch(e) {}
+    src = !h || h === location.hostname ? 'direct'
+      : /facebook|fb\.|messenger/.test(h) ? 'facebook'
+      : /instagram/.test(h) ? 'instagram'
+      : /threads/.test(h) ? 'threads'
+      : /google/.test(h) ? 'google'
+      : /line\.me|line\.naver/.test(h) ? 'line'
+      : /bing|yahoo|duckduckgo/.test(h) ? 'search'
+      : h.replace(/^www\./, '').slice(0, 30);
+  }
+  var post = document.querySelector('article.post');
+  var page = post && post.id ? post.id : (document.body.dataset.page || 'home');
+  api({type:'view', resource: page, source: src}).catch(function(){});
+})();
+function loadStats(){
+  if(!API) return;
+  fetch(API).then(function(r){ return r.json(); }).then(function(s){
+    document.querySelectorAll('.react').forEach(function(box){
+      var st = s[box.dataset.resource]; var n = box.querySelector('.n');
+      if(st && st.likes) n.textContent = st.likes;
+    });
+  }).catch(function(){});
+}
+document.querySelectorAll('.react').forEach(function(box){
+  var res = box.dataset.resource, like = box.querySelector('.like'), msg = box.nextElementSibling;
+  if(store('liked:'+res)) like.setAttribute('aria-pressed','true');
+  like.addEventListener('click', function(){
+    if(like.getAttribute('aria-pressed')==='true'){ msg.textContent='你已經按過讚了，謝謝！'; return; }
+    like.setAttribute('aria-pressed','true'); store('liked:'+res,'1');
+    var n = like.querySelector('.n'); n.textContent = (parseInt(n.textContent||'0',10)+1);
+    msg.textContent = '謝謝你的讚！';
+    api({type:'like', resource: res}).catch(function(){});
+  });
+  box.querySelector('.share').addEventListener('click', function(){
+    // 技能包分享它自己的網頁；網址帶 utm_source=share，才看得出分享帶來多少人。按一次分享也記一筆（share-資源名）。
+    var a = box.closest('article');
+    var url = a && a.id && !a.classList.contains('post') ? location.origin + '/skills/' + a.id + '.html' : location.origin + location.pathname;
+    url += '?utm_source=share';
+    if (location.hostname === 'juiyiteng.github.io' && !store('aiSiteOwner')) api({type:'view', resource:'share-' + res, source:'click'}).catch(function(){});
+    var title = box.dataset.title + '｜讓你的 AI 變好用';
+    if(navigator.share){ navigator.share({title:title, url:url}).catch(function(){}); return; }
+    var fbUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+    var done = function(){ msg.innerHTML = '連結已複製，可以貼給朋友。也可以 <a href="'+fbUrl+'" target="_blank" rel="noopener">分享到 Facebook</a>'; };
+    if(navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(url).then(done, done); } else { done(); }
+  });
+});
+document.querySelectorAll('.fb-form').forEach(function(f){
+  var out = f.querySelector('.fb-msg');
+  f.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var good = f.good.value.trim(), bad = f.bad.value.trim();
+    if(!good && !bad){ out.style.color='var(--muted)'; out.textContent='至少填一格再送出喔'; return; }
+    var btn = f.querySelector('button[type=submit]'); btn.disabled = true; out.style.color=''; out.textContent='送出中…';
+    api({type:'feedback', resource:f.dataset.resource, good:good, bad:bad, name:f.name.value.trim()})
+      .then(function(){ f.reset(); out.textContent='收到了，謝謝你！'; })
+      .catch(function(){ out.style.color='var(--muted)'; out.textContent='送出失敗，請稍後再試一次'; })
+      .finally(function(){ btn.disabled = false; });
+  });
+});
+loadStats();
+</script>
+</body>
+</html>
