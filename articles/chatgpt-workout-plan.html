@@ -79,6 +79,7 @@ footer p{margin:4px 0}
 .react{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .pill{font-family:inherit;font-size:17px;font-weight:700;border:2px solid var(--line);background:var(--card);color:var(--ink);
   border-radius:999px;padding:8px 18px;cursor:pointer}
+a.pill{text-decoration:none;display:inline-block;line-height:normal}
 .pill.like[aria-pressed="true"]{border-color:var(--accent);background:var(--soft);color:var(--accent)}
 .pill:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
 .react-msg,.fb-msg{font-size:16px;color:var(--ok);font-weight:700;min-height:1.4em;margin:6px 0 0}
@@ -296,18 +297,24 @@ document.querySelectorAll('.react').forEach(function(box){
     msg.textContent = '謝謝你的讚！';
     api({type:'like', resource: res}).catch(function(){});
   });
+  // 技能包分享它自己的網頁；網址帶 utm_source=share，才看得出分享帶來多少人。按一次分享也記一筆（share-資源名）。
+  var a = box.closest('article');
+  var url = (a && a.id && !a.classList.contains('post') ? location.origin + '/skills/' + a.id + '.html' : location.origin + location.pathname) + '?utm_source=share';
+  var title = box.dataset.title + '｜讓你的 AI 變好用';
+  var count = function(how){ if (location.hostname === 'juiyiteng.github.io' && !store('aiSiteOwner')) api({type:'view', resource:'share-' + res, source:how}).catch(function(){}); };
   box.querySelector('.share').addEventListener('click', function(){
-    // 技能包分享它自己的網頁；網址帶 utm_source=share，才看得出分享帶來多少人。按一次分享也記一筆（share-資源名）。
-    var a = box.closest('article');
-    var url = a && a.id && !a.classList.contains('post') ? location.origin + '/skills/' + a.id + '.html' : location.origin + location.pathname;
-    url += '?utm_source=share';
-    if (location.hostname === 'juiyiteng.github.io' && !store('aiSiteOwner')) api({type:'view', resource:'share-' + res, source:'click'}).catch(function(){});
-    var title = box.dataset.title + '｜讓你的 AI 變好用';
+    count('click');
     if(navigator.share){ navigator.share({title:title, url:url}).catch(function(){}); return; }
     var fbUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
     var done = function(){ msg.innerHTML = '連結已複製，可以貼給朋友。也可以 <a href="'+fbUrl+'" target="_blank" rel="noopener">分享到 Facebook</a>'; };
     if(navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(url).then(done, done); } else { done(); }
   });
+  // 傳到 LINE：直接打開 LINE 的分享畫面，選朋友或群組就能送出
+  var line = document.createElement('a');
+  line.className = 'pill line'; line.textContent = '傳到 LINE'; line.target = '_blank'; line.rel = 'noopener';
+  line.href = 'https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(url);
+  line.addEventListener('click', function(){ count('line'); });
+  box.appendChild(line);
 });
 document.querySelectorAll('.fb-form').forEach(function(f){
   var out = f.querySelector('.fb-msg');
