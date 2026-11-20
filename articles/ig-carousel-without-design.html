@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>不會設計，怎麼做 IG 輪播圖？先把每一頁的字排好，再請 AI 做圖｜讓你的 AI 變好用</title>
+<meta name="description" content="不會用設計軟體也能做 IG 輪播圖。先請 AI 把每一頁要放的字排成一張表，你看過說可以，再請它做成一整組 1080×1350 的圖片。這篇有一段可以直接貼給 AI 的話。">
+<meta property="og:title" content="不會設計，怎麼做 IG 輪播圖？先把每一頁的字排好，再請 AI 做圖">
+<meta property="og:description" content="不會用設計軟體也能做 IG 輪播圖。先請 AI 把每一頁要放的字排成一張表，你看過說可以，再請它做成一整組 1080×1350 的圖片。這篇有一段可以直接貼給 AI 的話。">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="讓你的 AI 變好用">
+<meta property="og:url" content="https://juiyiteng.github.io/articles/ig-carousel-without-design.html">
+<meta property="og:image" content="https://juiyiteng.github.io/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://juiyiteng.github.io/articles/ig-carousel-without-design.html">
+<style>
+:root{
+  --bg:#FAF7F2; --card:#FFFFFF; --ink:#1F2328; --muted:#5A5F66; --line:#E6E0D6;
+  --accent:#3B4BC8; --accent-ink:#FFFFFF; --soft:#EEF0FB; --ok:#1E7A4C;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16181D; --card:#1F222A; --ink:#ECEDEF; --muted:#A7ABB3; --line:#2E323C;
+    --accent:#8C9BFF; --accent-ink:#11131A; --soft:#262B40; --ok:#5FD39A;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16181D; --card:#1F222A; --ink:#ECEDEF; --muted:#A7ABB3; --line:#2E323C;
+  --accent:#8C9BFF; --accent-ink:#11131A; --soft:#262B40; --ok:#5FD39A;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  font-size:19px;line-height:1.75}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header{padding:56px 0 28px}
+.brand{font-size:15px;font-weight:700;letter-spacing:.08em;color:var(--accent);margin:0 0 12px}
+h1{font-size:clamp(30px,6vw,42px);line-height:1.3;margin:0 0 16px;font-weight:800}
+.tagline{font-size:22px;font-weight:700;margin:-4px 0 16px}
+.lead{font-size:20px;color:var(--muted);margin:0}
+h2{font-size:26px;line-height:1.4;margin:0 0 8px}
+h3{font-size:21px;margin:28px 0 8px}
+section{padding:24px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 24px;margin:16px 0}
+.tag{display:inline-block;font-size:15px;font-weight:700;background:var(--soft);color:var(--accent);
+  border-radius:999px;padding:2px 12px;margin:0 6px 10px 0}
+.card p{margin:8px 0}
+ul{padding-left:1.2em;margin:8px 0}
+li{margin:4px 0}
+.ways{display:grid;gap:16px;margin-top:20px}
+@media (min-width:700px){.ways{grid-template-columns:1fr 1fr}}
+.way{border:2px solid var(--line);border-radius:14px;padding:20px}
+.way.easy{border-color:var(--accent)}
+.way h4{font-size:20px;margin:0 0 4px}
+.way .who{font-size:16px;color:var(--muted);margin:0 0 12px}
+ol{padding-left:1.3em;margin:8px 0}
+ol li{margin:6px 0}
+.btn{display:block;width:100%;text-align:center;font-size:19px;font-weight:700;border-radius:12px;
+  padding:14px 16px;margin-top:14px;border:2px solid var(--accent);cursor:pointer;text-decoration:none;font-family:inherit}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.copied{color:var(--ok);font-weight:700;font-size:17px;text-align:center;min-height:1.6em;margin:8px 0 0}
+.note{font-size:17px;color:var(--muted)}
+details{border-top:1px solid var(--line);padding:14px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;font-size:19px}
+details p{margin:10px 0 0}
+kbd{font-family:inherit;font-size:16px;background:var(--soft);border-radius:6px;padding:1px 7px}
+footer{padding:40px 0 56px;font-size:16px;color:var(--muted)}
+footer p{margin:4px 0}
+.consult{border:2px solid var(--accent);background:var(--soft)}
+.consult .btn{max-width:360px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:12px 0}
+.svc h4{font-size:20px;margin:0 0 4px}
+.svc p{margin:0}
+.svc.fit{border:2px dashed var(--accent)}
+.react{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.pill{font-family:inherit;font-size:17px;font-weight:700;border:2px solid var(--line);background:var(--card);color:var(--ink);
+  border-radius:999px;padding:8px 18px;cursor:pointer}
+a.pill{text-decoration:none;display:inline-block;line-height:normal}
+.pill.like[aria-pressed="true"]{border-color:var(--accent);background:var(--soft);color:var(--accent)}
+.pill:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.react-msg,.fb-msg{font-size:16px;color:var(--ok);font-weight:700;min-height:1.4em;margin:6px 0 0}
+details.fb{border:none;padding:4px 0 0}
+details.fb summary{font-size:18px;color:var(--accent)}
+.fb-form label{display:block;font-size:17px;font-weight:700;margin-top:14px}
+.fb-form textarea,.fb-form input{display:block;width:100%;margin-top:6px;font-family:inherit;font-size:17px;line-height:1.6;
+  border:2px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--card);color:var(--ink)}
+.fb-form textarea:focus,.fb-form input:focus{outline:none;border-color:var(--accent)}
+.fb-form .btn{max-width:260px}
+textarea.hidden-src{position:absolute;left:-9999px;width:1px;height:1px}
+textarea.shown-src{display:block;width:100%;height:220px;margin-top:12px;font-size:16px;line-height:1.6;
+  border:2px solid var(--accent);border-radius:12px;padding:12px;background:var(--card);color:var(--ink);font-family:inherit}
+.jump{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 0}
+.jump a{font-size:17px;font-weight:700;text-decoration:none;color:var(--accent);border:2px solid var(--accent);border-radius:999px;padding:6px 16px}
+.start-card{border:2px solid var(--accent);background:var(--soft)}
+.start-card .btn{max-width:320px}
+a.post-link{display:block;text-decoration:none;color:inherit}
+a.post-link:hover h3,a.post-link:focus-visible h3{color:var(--accent)}
+a.post-link:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border-radius:18px}
+.post-link .card{padding:22px 24px}
+.post-link h3{margin:2px 0 6px;line-height:1.45}
+.post-link p{margin:0;color:var(--muted);font-size:17px}
+.post-link .date{font-size:15px;color:var(--muted);margin-left:4px}
+.top{padding:24px 0 0;font-size:17px}
+.top a{color:var(--accent);text-decoration:none;font-weight:700}
+.post-head{padding:24px 0 8px}
+.post-head h1{font-size:clamp(28px,5.5vw,38px);margin:6px 0 12px}
+.post-body h2{margin:40px 0 10px}
+.post-body h3{margin:28px 0 6px}
+.post-body p{margin:14px 0}
+.post-body blockquote{margin:20px 0;padding:14px 20px;border-left:5px solid var(--accent);background:var(--soft);border-radius:10px;font-weight:700}
+.post-body .sum{background:var(--soft);border-radius:12px;padding:16px 20px}
+.post-body pre.prompt{white-space:pre-wrap;word-break:break-word;font-family:inherit;font-size:17px;line-height:1.7;
+  background:var(--card);border:2px solid var(--line);border-radius:12px;padding:14px 16px;margin:12px 0}
+.post-body figure{margin:18px 0}
+.post-body img{display:block;max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+.post-body figcaption{font-size:16px;color:var(--muted);text-align:center;margin-top:8px}
+.post-body hr{border:none;border-top:1px solid var(--line);margin:32px 0}
+.post-body .video{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;margin:20px 0}
+.post-body .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.react-card{margin-top:40px}
+.more{display:grid;gap:4px;padding:8px 0}
+@media (min-width:700px){.more{grid-template-columns:1fr 1fr;gap:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="top"><a href="../index.html">← 讓你的 AI 變好用</a></nav>
+
+<article class="post" id="ig-carousel-without-design">
+  <header class="post-head">
+    <span class="tag">新手教學</span>
+    <h1>不會設計，怎麼做 IG 輪播圖？先把每一頁的字排好，再請 AI 做圖</h1>
+    <p class="lead">不會用設計軟體也能做 IG 輪播圖。先請 AI 把每一頁要放的字排成一張表，你看過說可以，再請它做成一整組 1080×1350 的圖片。這篇有一段可以直接貼給 AI 的話。</p>
+    <p class="note">發表於 2026 年 11 月 20 日</p>
+  </header>
+  <div class="post-body">
+<p>想發 IG 輪播圖，就是一次放好幾張、讓人往右滑的那種貼文。打開設計軟體，卻不知道從哪裡開始。</p>
+<p>做輪播圖最花時間的地方，其實是決定每一頁要放什麼字。字排好了，做圖可以交給 AI。</p>
+
+<h2>先試這個：把這段話貼給 AI</h2>
+<p>把你想講的主題，或一段寫好的文字準備好，然後貼上這段話：</p>
+<blockquote>我想做一組 IG 輪播圖，主題是：〔寫上你的主題，或貼上一段文字〕。請先不要做圖。先用表格規劃 5 到 8 頁，每一頁寫出大標和說明文字。一頁只講一件事。大標每行 12 個字以內，說明文字每頁 60 個字以內。我沒給的數字和例子不要加，缺資料的地方寫「待補」。我說可以，你再做圖。</blockquote>
+<p>「先不要做圖」那一句要留著。AI 一開始就做圖，你常常要等整組做完，才發現方向不對，只好全部重做。</p>
+<p>「不要加」那一句也要留著。AI 為了讓內容好看，有時會自己編出數字。</p>
+
+<h2>每一頁放什麼</h2>
+<p>照這個順序排，總共 5 到 8 頁。內容少就少做幾頁，不用為了湊頁數加句子。</p>
+<ol>
+  <li><strong>封面。</strong>一個問題，或一句你的主張，讓人想往右滑。大標最多兩行。</li>
+  <li><strong>為什麼要看。</strong>用一句話說這件事跟讀者有什麼關係。</li>
+  <li><strong>內容頁。</strong>一頁一個重點，每頁一個小標，加上最多三行說明。</li>
+  <li><strong>重點整理。</strong>內容頁超過三頁才需要，最多列 5 點。</li>
+  <li><strong>最後一頁。</strong>請讀者做一件事，例如「存起來，下次要用再看」。只放一個行動。</li>
+</ol>
+
+<h2>字放不下，就多一頁</h2>
+<p>新手最常做的事，是把字縮小，硬塞進同一頁。在手機上看，那些字會小到讀不出來。</p>
+<p>所以字放不下的時候，請 AI 把那一頁拆成兩頁，字的大小不要動。</p>
+
+<h2>字排好了，再請 AI 做圖</h2>
+<p>表格看過、改過，覺得可以了，再貼這段話：</p>
+<blockquote>可以，請照這張表做圖。每一頁 1080×1350 像素，做成一個可以預覽的網頁，加一個「下載全部 PNG」的按鈕。每一頁的字的位置、大小和顏色都一樣。四邊留白，字不要貼邊。不要放我沒給的照片。</blockquote>
+<p>1080×1350 是 IG 直式貼文的尺寸，一張圖在手機上佔的畫面最大。</p>
+<p>Claude 可以直接顯示網頁預覽，按鈕按下去就能存圖。如果你用的 AI 只給一大段程式碼，就請它教你怎麼存成檔案，再用瀏覽器打開。</p>
+
+<h2>圖做好，發之前看四件事</h2>
+<ol>
+  <li>有沒有字超出畫面，或被切掉。</li>
+  <li>封面縮成手機上小小一格的時候，大標還看得清楚嗎？看不清楚就把大標改短、字放大。</li>
+  <li>每一頁的字，和你確認過的表格是不是一樣。</li>
+  <li>名字、日期、價格、網址有沒有被改掉。</li>
+</ol>
+
+<h2>想每次都照這個方法做</h2>
+<p>上面的步驟已經整理成免費的技能包「IG 輪播圖一次做好」。按一下複製整段說明，貼給 AI。它會先問你這組輪播要講什麼，排好每一頁的字給你看，你說可以才做圖，最後附上貼文的說明文字。</p>
+<p><a class="btn primary" href="../skills/ig-carousel.html">去拿「IG 輪播圖一次做好」技能包</a></p>
+
+  </div>
+
+  <div class="card react-card">
+    <p style="font-weight:700;margin:0">這篇對你有幫助嗎？</p>
+    <div class="react" data-resource="ig-carousel-without-design" data-title="不會設計，怎麼做 IG 輪播圖？先把每一頁的字排好，再請 AI 做圖">
+      <button class="pill like" type="button" aria-pressed="false">👍 有幫助 <span class="n"></span></button>
+      <button class="pill share" type="button">↗ 分享給朋友</button>
+    </div>
+    <p class="react-msg" aria-live="polite"></p>
+    <details class="fb">
+      <summary>看完有什麼想法？告訴我</summary>
+      <form class="fb-form" data-resource="ig-carousel-without-design">
+        <label>有幫助的地方<textarea name="good" rows="3" maxlength="1000"></textarea></label>
+        <label>看不懂或想再多知道的地方<textarea name="bad" rows="3" maxlength="1000"></textarea></label>
+        <label>暱稱（可不填）<input name="name" maxlength="30"></label>
+        <button class="btn primary" type="submit">送出回饋</button>
+        <p class="note">不用留 Email，匿名也可以。</p>
+        <p class="fb-msg" aria-live="polite"></p>
+      </form>
+    </details>
+  </div>
+</article>
+
+<section class="more">
+  <a class="btn ghost" href="../index.html#articles">看其他文章</a>
+  <a class="btn primary" href="../index.html#skills">去拿免費技能包</a>
+</section>
+
+<footer>
+  <p>網站設計：Joyce T｜<a href="https://www.facebook.com/joyce.t.996425" target="_blank" rel="noopener" style="color:var(--accent)">Facebook</a></p>
+  <p><a href="https://www.facebook.com/profile.php?id=61596840290249" target="_blank" rel="noopener" style="color:var(--accent)">追蹤 FB 粉專「讓你的 AI 變好用」</a>，每週分享新手用得上的 AI 小方法</p>
+  <p>讓你的 AI 變好用・帶你一步步用好 AI</p>
+</footer>
+</div>
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var id = btn.getAttribute('data-copy');
+    var src = document.getElementById(id);
+    var msg = document.getElementById('copied-' + id);
+    var text = src.value;
+    function done(ok){
+      if (ok) { msg.textContent = '已複製！打開 Claude 貼上送出就好'; return; }
+      msg.textContent = '自動複製沒成功，請把下面整段文字全選、複製';
+      src.className = 'shown-src'; src.removeAttribute('aria-hidden'); src.removeAttribute('tabindex');
+      src.focus(); src.select();
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function(){done(true)}, function(){fallback()});
+    } else { fallback(); }
+    function fallback(){
+      try { src.style.position='fixed'; src.style.left='0'; src.select(); var ok=document.execCommand('copy');
+        src.style.position=''; src.style.left=''; done(ok);} catch(e){ done(false); }
+    }
+  });
+});
+
+var API = "https://script.google.com/macros/s/AKfycbwMLUq48ZNEPlzWWwNbAV92mQNIG6Xg6tk-CS7udGBWaS5xW2L2_0vTMK5hBzTzhuG1/exec";
+function store(k, v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k, v);}catch(e){ return null; } }
+function api(payload){
+  if(!API) return Promise.reject(new Error('no-api'));
+  return fetch(API, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload)})
+    .then(function(r){ return r.json(); }).then(function(j){ if(!j.ok) throw new Error('bad'); return j; });
+}
+// 瀏覽次數：只在正式網址計算；網址加 ?owner=1 開過一次的瀏覽器（網站主人和 AI 自己）不計。
+(function(){
+  if (location.hostname !== 'juiyiteng.github.io') return;
+  var q = new URLSearchParams(location.search);
+  if (q.get('owner') === '1') { store('aiSiteOwner', '1'); return; }
+  if (store('aiSiteOwner')) return;
+  var src = (q.get('utm_source') || '').toLowerCase().replace(/[^a-z0-9.-]/g, '').slice(0, 30);
+  if (!src) {
+    var h = ''; try { h = new URL(document.referrer).hostname; } catch(e) {}
+    src = !h || h === location.hostname ? 'direct'
+      : /facebook|fb\.|messenger/.test(h) ? 'facebook'
+      : /instagram/.test(h) ? 'instagram'
+      : /threads/.test(h) ? 'threads'
+      : /google/.test(h) ? 'google'
+      : /line\.me|line\.naver/.test(h) ? 'line'
+      : /bing|yahoo|duckduckgo/.test(h) ? 'search'
+      : h.replace(/^www\./, '').slice(0, 30);
+  }
+  var post = document.querySelector('article.post');
+  var page = post && post.id ? post.id : (document.body.dataset.page || 'home');
+  api({type:'view', resource: page, source: src}).catch(function(){});
+})();
+function loadStats(){
+  if(!API) return;
+  fetch(API).then(function(r){ return r.json(); }).then(function(s){
+    document.querySelectorAll('.react').forEach(function(box){
+      var st = s[box.dataset.resource]; var n = box.querySelector('.n');
+      if(st && st.likes) n.textContent = st.likes;
+    });
+  }).catch(function(){});
+}
+document.querySelectorAll('.react').forEach(function(box){
+  var res = box.dataset.resource, like = box.querySelector('.like'), msg = box.nextElementSibling;
+  if(store('liked:'+res)) like.setAttribute('aria-pressed','true');
+  like.addEventListener('click', function(){
+    if(like.getAttribute('aria-pressed')==='true'){ msg.textContent='你已經按過讚了，謝謝！'; return; }
+    like.setAttribute('aria-pressed','true'); store('liked:'+res,'1');
+    var n = like.querySelector('.n'); n.textContent = (parseInt(n.textContent||'0',10)+1);
+    msg.textContent = '謝謝你的讚！';
+    api({type:'like', resource: res}).catch(function(){});
+  });
+  // 技能包分享它自己的網頁；網址帶 utm_source=share，才看得出分享帶來多少人。按一次分享也記一筆（share-資源名）。
+  var a = box.closest('article');
+  var url = (a && a.id && !a.classList.contains('post') ? location.origin + '/skills/' + a.id + '.html' : location.origin + location.pathname) + '?utm_source=share';
+  var title = box.dataset.title + '｜讓你的 AI 變好用';
+  var count = function(how){ if (location.hostname === 'juiyiteng.github.io' && !store('aiSiteOwner')) api({type:'view', resource:'share-' + res, source:how}).catch(function(){}); };
+  box.querySelector('.share').addEventListener('click', function(){
+    count('click');
+    if(navigator.share){ navigator.share({title:title, url:url}).catch(function(){}); return; }
+    var fbUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+    var done = function(){ msg.innerHTML = '連結已複製，可以貼給朋友。也可以 <a href="'+fbUrl+'" target="_blank" rel="noopener">分享到 Facebook</a>'; };
+    if(navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(url).then(done, done); } else { done(); }
+  });
+  // 傳到 LINE：直接打開 LINE 的分享畫面，選朋友或群組就能送出
+  var line = document.createElement('a');
+  line.className = 'pill line'; line.textContent = '傳到 LINE'; line.target = '_blank'; line.rel = 'noopener';
+  line.href = 'https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(url);
+  line.addEventListener('click', function(){ count('line'); });
+  box.appendChild(line);
+});
+document.querySelectorAll('.fb-form').forEach(function(f){
+  var out = f.querySelector('.fb-msg');
+  f.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var good = f.good.value.trim(), bad = f.bad.value.trim();
+    if(!good && !bad){ out.style.color='var(--muted)'; out.textContent='至少填一格再送出喔'; return; }
+    var btn = f.querySelector('button[type=submit]'); btn.disabled = true; out.style.color=''; out.textContent='送出中…';
+    api({type:'feedback', resource:f.dataset.resource, good:good, bad:bad, name:f.name.value.trim()})
+      .then(function(){ f.reset(); out.textContent='收到了，謝謝你！'; })
+      .catch(function(){ out.style.color='var(--muted)'; out.textContent='送出失敗，請稍後再試一次'; })
+      .finally(function(){ btn.disabled = false; });
+  });
+});
+loadStats();
+</script>
+</body>
+</html>
